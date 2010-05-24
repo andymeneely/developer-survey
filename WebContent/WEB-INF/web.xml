@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>Developer Team Survey</display-name>
+
+	<!-- The Welcome File List -->
+	<welcome-file-list>
+		<welcome-file>/redirect.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!--
+		Define the type of login, and what page is called when credentials are
+		challenged
+	-->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>AuthenticatedRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<!-- "Error" usually means that the password doesn't match -->
+			<form-error-page>/login.jsp?loginError=true
+			</form-error-page>
+		</form-login-config>
+	</login-config>
+
+	<!-- 404 means page not found -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/notfound.jsp</location>
+	</error-page>
+
+	<!-- Define all of the roles here -->
+	<security-role>
+		<role-name>user</role-name>
+	</security-role>
+	<security-role>
+		<role-name>admin</role-name>
+	</security-role>
+
+	<security-constraint>
+		<display-name>Authenticated Users</display-name>
+		<web-resource-collection>
+			<web-resource-name>
+				All Authenticated Users
+			</web-resource-name>
+			<!-- Define the context-relative URL(s) to be protected -->
+			<url-pattern>/auth/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- Anyone with one of the listed roles may access this area -->
+			<role-name>admin</role-name>
+			<role-name>user</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-constraint>
+		<display-name>Authenticated Users</display-name>
+		<web-resource-collection>
+			<web-resource-name>
+				All Authenticated Users
+			</web-resource-name>
+			<!-- Define the context-relative URL(s) to be protected -->
+			<url-pattern>/auth/admin/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- Anyone with one of the listed roles may access this area -->
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+</web-app>
+
