@@ -4,7 +4,9 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.ProjectTasks"%>
 <%@page import="java.util.List"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -14,13 +16,25 @@
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
 <%
-	List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal()
-			.getName());
+String posted = request.getParameter("posted");
+if("true".equals(request.getParameter("posted"))){
+	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
+	try{
+		save.saveTasks(request);
+		save.saveNumMembers(request.getParameter("numteammates"));
+	}catch(InputValidationException e){
+		
+	}
+}
+
+List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal().getName());
 %>
 
 <h1>About your team</h1>
 
-<form method=post action="page3.jsp"><br>
+<form method=post action="page3.jsp">
+<input type=hidden name=posted value=true/>
+<br>
 Next, <em>in the context of this project</em>, please characterize your
 working relationship with each of these people.
 <table>

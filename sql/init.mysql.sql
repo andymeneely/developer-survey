@@ -25,5 +25,10 @@ SELECT uo.user1, uo.user2, IF(distance IS NULL, 100, distance) distance
 FROM distance d RIGHT OUTER JOIN UserCross uo
   ON (d.user1=uo.user1 AND d.user2=uo.user2);
 
-  
+CREATE TABLE Survey(
+	User        VARCHAR(50),
+	Question    INTEGER,
+	Answer		VARCHAR(500),
+	Updated		TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+); 
   

@@ -94,3 +94,8 @@ div.instructions {
 #back {
 	float: left;
 }
+div.pageNum{
+	font-size: 80%;
+	font-style: italic;	
+	float: right;
+}

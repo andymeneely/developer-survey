@@ -14,7 +14,7 @@
 <h1>About your project</h1>
 
 <form method=post action="page2.jsp">
-
+<input type=hidden name="posted" value="true"/>
 <div class=question>On this team, I perform the following tasks
 (check all that apply).
 <table>
@@ -35,6 +35,9 @@
 of this team have you worked with in the last month? Include in your
 count both in-person and online interactions. Do not include yourself in this count.<br>
 <input name="numteammates" value="" size=3></div>
+
+<div class=pageNum>Page 1 of 4</div>
+<div class=clear></div>
 
 <input type=submit value="Next >>" id=next>
 <input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
