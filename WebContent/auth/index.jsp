@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 
 
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.IdentifyDeveloper"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperDAO"%><html>
 <head>
 <title>Developer Survey</title>
 </head>
@@ -14,7 +14,7 @@ Thank you for taking this survey! Before we get started, please confirm
 that this is you.
 
 <%
-	IdentifyDeveloper id = new IdentifyDeveloper();
+	DeveloperDAO id = new DeveloperDAO();
 	Developer dev = id.getDeveloper(request.getUserPrincipal().getName());
 %>
 
@@ -24,7 +24,8 @@ Project: <%=dev.getProject()%><br />
 
 <form method=post action="page1.jsp"><input type=submit
 	value="Yes, that's me."></form>
-If this is not you, please contact Andy Meneely (apmeneel@ncsu.edu) to participate in this survey. 
+If this is not you, please contact Andy Meneely (<a href="mailto:apmeneel@ncsu.edu">apmeneel@ncsu.edu</a>) 
+to get the correct username to participate in this survey. 
 </body>
 
 </html>

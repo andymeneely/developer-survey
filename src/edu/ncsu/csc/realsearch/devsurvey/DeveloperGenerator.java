@@ -45,7 +45,7 @@ public class DeveloperGenerator {
 
 	private List<Developer> fillInNames(List<Developer> fillIn) throws SQLException {
 		for (Developer dev: fillIn) {
-			Developer fullDev = new IdentifyDeveloper().getDeveloper(dev.getUsername());
+			Developer fullDev = new DeveloperDAO().getDeveloper(dev.getUsername());
 			dev.setName(fullDev.getName());
 		}
 		return fillIn;
