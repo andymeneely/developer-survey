@@ -22,37 +22,38 @@ collection = <%=new AutoSuggestList().getAllTeammatesArray(request
 
 <h1>About experts</h1>
 
-<form method=post action="page4.jsp" onsubmit="return checkForm()">
+<form method=post action="finish.jsp" onsubmit="return checkForm();">
 <div class=question>Next, who on this team would you consider be
 an <b>expert</b> on this particular project?
 <div class=instructions>Please enter up to 5 names or email addresses</div>
 
 <table>
 	<tr>
-		<td><input class="wickEnabled" maxlength="20" size=20 type=text
+		<td><input class="wickEnabled" size=70 type=text
 			name="person1" value=""></td>
 	</tr>
 	<tr>
-		<td><input class="wickEnabled" maxlength="20" size=20 type=text
+		<td><input class="wickEnabled" size=70 type=text
 			name="person2" value=""></td>
 	</tr>
 	<tr>
-		<td><input class="wickEnabled" maxlength="20" size=20 type=text
+		<td><input class="wickEnabled" size=70 type=text
 			name="person3" value=""></td>
 	</tr>
 	<tr>
-		<td><input class="wickEnabled" maxlength="20" size=20 type=text
+		<td><input class="wickEnabled" size=70 type=text
 			name="person4" value=""></td>
 	</tr>
 	<tr>
-		<td><input class="wickEnabled" maxlength="20" size=20 type=text
+		<td><input class="wickEnabled" size=70 type=text
 			name="person5" value=""></td>
 	</tr>
 </table>
 
 </div>
 
-<input type=button value="Next" onclick=checkSum(this.form);></form>
+<input type=submit value="Next">
+</form>
 
 
 <script type="text/javascript" language="JavaScript" src="./wick.js"></script>
