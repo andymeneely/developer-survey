@@ -8,19 +8,25 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.AutoSuggestList"%><html>
 <head>
 <title>Developer Survey</title>
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 <style>
 </style>
 
 </head>
 <body>
-
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
 
 <h1>Thank you!</h1>
 <div class=question>You're done! Thank you very much for taking
-this survey. The data you are providing help give us valuable insight
-into development teams. 
+this survey. 
 </div>
+ 
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
+<div class=clear></div>
+
+</div></div></div>
 </body>
 
 </html>

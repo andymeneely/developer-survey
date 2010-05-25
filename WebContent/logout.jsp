@@ -4,10 +4,16 @@
 <html>
 <head>
 <title>Developer Survey</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 </head>
 <body>
 <%session.invalidate(); %>
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
 
 You are now logged out. <a href="<%=request.getContextPath()%>">Log back in.</a>
+
+</div></div></div>
 </body>
 </html>

@@ -9,12 +9,15 @@
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="./wick.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 <style>
 </style>
 
 </head>
 <body>
-
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
 <script type="text/javascript">
 collection = <%=new AutoSuggestList().getAllTeammatesArray(request
 							.getUserPrincipal().getName())%>;
@@ -52,11 +55,14 @@ an <b>expert</b> on this particular project?
 
 </div>
 
-<input type=submit value="Next">
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
+<input type=submit value="Next >>" id=next>
+<div class=clear></div>
+
 </form>
 
 
 <script type="text/javascript" language="JavaScript" src="./wick.js"></script>
-</body>
+</div></div></div></body>
 
 </html>

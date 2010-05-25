@@ -5,8 +5,13 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.InitialPasswordValidator"%><html>
 <head>
 <title>Developer Survey</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 </head>
 <body>
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
+<div class=login>
 
 Please enter the username and password you were given in the email.
 
@@ -34,11 +39,10 @@ if(new InitialPasswordValidator().isValidUserPass(session.getAttribute("user"),s
 		<td>Password:</td>
 		<td><input type=password name="j_password" value="<%=passValue%>"></td>
 	</tr>
-	<tr>
-		<td colspan=100%><input type=submit value="Login" /></td>
 </table>
+<input type=submit value="Start the survey" />
 
 </form>
-
+</div></div></div></div>
 </body>
 </html>

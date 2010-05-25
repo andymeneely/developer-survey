@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.IdentifyDeveloper"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.ProjectTasks"%>
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%><html>
 <head>
 <title>Developer Survey</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 </head>
 <body>
-
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
 <%
 	List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal()
 			.getName());
@@ -39,7 +41,13 @@ working relationship with each of these people.
 		}
 	%>
 </table>
-<input type=submit value="Next"></form>
-</body>
+
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
+<input type=submit value="Next >>" id=next>
+<div class=clear></div>
+
+
+</form>
+</div></div></div></body>
 
 </html>

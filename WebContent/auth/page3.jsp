@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.IdentifyDeveloper"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.ProjectTasks"%>
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%><html>
 <head>
 <title>Developer Survey</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 </head>
 <body>
-
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
 <%
 	String[] choice = {
 			"I work with this person frequently.",
@@ -49,14 +51,16 @@
 
 <h1>About decision-making</h1>
 
-<form method=post action="page3.jsp">
-<div class=question>Next, consider the following scenario. <br>
+<form method=post action="page4.jsp">
+<div class=question>Next, consider the following scenario.<br>
+<br>
 Suppose you are developing a new feature for this project, and you
 realized that your changes could make the system insecure if your
 implementation is not correct. You decide to contact some of your
 colleagues to inspect your feature to ensure that no security
-vulnerabilities are being introduced. What <b>factors</b> are most
-important to you in deciding who to work with in this situation?
+vulnerabilities are being introduced. <br>
+What <b>factors</b> are most important to you in deciding who to work with in this situation?
+
 <div class=instructions>Please assign 24 points to each of the
 following factors.</div>
 
@@ -76,8 +80,10 @@ following factors.</div>
 Points left: <input maxlength="2" size=2 type=text name="total"
 	value="24" /></div>
 
-<input type=button value="Next" onclick="checkSum(this.form)">
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
+<input type=button value="Next >>" id=next onclick="checkSum(this.form)">
+<div class=clear></div>
 </form>
-</body>
+</div></div></div></body>
 
 </html>

@@ -6,26 +6,49 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperDAO"%><html>
 <head>
 <title>Developer Survey</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 </head>
 <body>
+<div id=wrap>
+<div id=container><%@include file="/header.jsp"%>
+<div id=content>
+<h2>Welcome!</h2>
 
-<h1>Welcome!</h1>
-Thank you for taking this survey! Before we get started, please confirm
-that this is you.
+Thank you for taking this survey! 
 
-<%
+
+ Before we get started, please confirm
+that this is you. <%
 	DeveloperDAO id = new DeveloperDAO();
 	Developer dev = id.getDeveloper(request.getUserPrincipal().getName());
 %>
 
-<div>Name: <%=dev.getName()%><br />
-Project: <%=dev.getProject()%><br />
-</div>
+<div class=question>
+<table>
+	<tr>
+		<td>Name:</td>
+		<td><%=dev.getName()%></td>
+	</tr>
+	<tr>
+		<td>Email:</td>
+		<td><%=dev.getUsername()%></td>
+	</tr>
+	<tr>
+		<td>Project:</td>
+		<td><%=dev.getProject()%></td>
+	</tr>
+</table>
 
 <form method=post action="page1.jsp"><input type=submit
 	value="Yes, that's me."></form>
-If this is not you, please contact Andy Meneely (<a href="mailto:apmeneel@ncsu.edu">apmeneel@ncsu.edu</a>) 
-to get the correct username to participate in this survey. 
+</div>
+<br><br>
+If this is not you, please contact <a href="mailto:apmeneel@ncsu.edu">Andy Meneely</a> to get the
+correct username to participate in this survey.
+</div>
+<%@include file="/footer.jsp" %>
+</div>
+</div>
 </body>
 
 </html>

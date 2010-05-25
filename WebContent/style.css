@@ -1,0 +1,96 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Verdana, serif;
+	font-size: 12px;
+}
+td{
+	/* Looks like a Firefox bug... */
+	font-family: Verdana, serif;
+	font-size: 12px; 	
+}
+
+#wrap {
+	
+}
+
+#container {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header {
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+#content {
+	
+}
+
+#footer {
+	margin-top: 25px;
+	font-size: 75%;
+	text-align: center;
+}
+
+#topLink {
+	float: right;
+	text-align: right;
+}
+
+#logoutLink {
+	float: left;
+	text-align: left;
+}
+
+h2 {
+	margin-bottom: 5px;
+}
+
+div.login{
+	text-align:center;	
+}
+div.login table{
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+div.question {
+	border: 1pt solid gray;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+div.question td {
+	font-size: 12px;
+}
+
+div.instructions {
+	font-style: italic;	
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.clear {
+	clear: both;
+}
+#next{
+	float: right;
+}
+#back {
+	float: left;
+}
