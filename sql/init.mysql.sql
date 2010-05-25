@@ -17,7 +17,7 @@ CREATE TABLE Distance(
 CREATE VIEW UserCross AS
 	SELECT u1.user user1, u2.user user2 
 	FROM users u1, users u2 
-	WHERE strcmp(u1.user, u2.user)<0
+	WHERE strcmp(u1.user, u2.user)<0 AND u1.project=u2.project
 ;
 
 CREATE VIEW AllDistances AS
