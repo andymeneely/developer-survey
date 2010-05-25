@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 <form method=post action="finish.jsp">
 <input type=hidden name=posted value=true/>
-<div class=question>Next, who on this team would you consider be
+<div class=question>5. Next, who on this team would you consider be
 an <b>expert</b> on this particular project?
 <div class=instructions>Please enter up to 5 names or email addresses</div>
 
@@ -87,6 +87,9 @@ an <b>expert</b> on this particular project?
 </table>
 
 </div>
+
+<div class=pageNum>Page 4 of 4</div>
+<div class=clear></div>
 
 <input type=submit value="Next >>" id=next>
 <input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>

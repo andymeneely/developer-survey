@@ -6,7 +6,8 @@
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%>
+<%@page import="java.util.ArrayList"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -16,17 +17,6 @@
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
 <%
-String posted = request.getParameter("posted");
-if("true".equals(request.getParameter("posted"))){
-	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
-	try{
-		save.saveTasks(request);
-		save.saveNumMembers(request.getParameter("numteammates"));
-	}catch(InputValidationException e){
-		
-	}
-}
-
 List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal().getName());
 %>
 
@@ -34,20 +24,23 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 
 <form method=post action="page3.jsp">
 <input type=hidden name=posted value=true/>
+
 <br>
-Next, <em>in the context of this project</em>, please characterize your
-working relationship with each of these people.
+<div class=question>
+3. Next, <em>in the context of this project</em>, what is your connection to the following people?
+<br><br>
 <table>
 	<%
 		for (Developer dev : devs) {
 	%>
 	<tr>
-		<td><%=dev.getName()%> (<%=dev.getUsername()%>) <!-- <%=dev.getDistanceTo()%> --></td>
+		<td align=center><%=dev.getName()%> <br>
+		(<%=dev.getUsername()%>) <!-- <%=dev.getDistanceTo()%> --></td>
 		<td><select name="distanceTo<%=dev.getUsername()%>">
 			<option value=4>I have never heard of this person before.</option>
 			<option value=3>I recognize this person's name, but I don't know much about them.</option>
 			<option value=2>I know who this person is, but I have not worked with them directly.</option>
-			<option value=1>I have worked with this person.</option>
+			<option value=1>I have worked with this person on this project.</option>
 
 		</select></td>
 	</tr>
@@ -55,6 +48,10 @@ working relationship with each of these people.
 		}
 	%>
 </table>
+</div>
+
+<div class=pageNum>Page 2 of 4</div>
+<div class=clear></div>
 
 <input type=submit value="Next >>" id=next>
 <input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>

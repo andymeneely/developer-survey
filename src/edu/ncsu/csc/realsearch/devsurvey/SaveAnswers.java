@@ -17,15 +17,17 @@ public class SaveAnswers {
 		String[] values = req.getParameterValues("roles");
 		String answer = "";
 		List<String> errors = new ArrayList<String>();
-		for (String value : values) {
-			try {
-				ProjectTasks task = ProjectTasks.valueOf(value);
-				answer += task.name() + ", ";
-			} catch (Throwable t) {
-				// ignore anything wrong here...
+		if (values != null && values.length > 0) {
+			for (String value : values) {
+				try {
+					ProjectTasks task = ProjectTasks.valueOf(value);
+					answer += task.name() + ", ";
+				} catch (Throwable t) {
+					// ignore anything wrong here...
+				}
 			}
+			new SurveyDAO().saveAnswer(username, 1, answer);
 		}
-		new SurveyDAO().saveAnswer(username, 1, answer);
 		return errors;
 	}
 

@@ -16,7 +16,7 @@
 <%
 	String[] choice = {
 			"I work with this person frequently.",
-			"This person is physically located near me.",
+			"This person is conveniently located near me.",
 			"This person knows a lot about software security in general.",
 			"This person has worked on similar features to this one before.",
 			"In the past, this person has worked on parts of this project with high security risk.",
@@ -53,14 +53,15 @@
 
 <form method=post action="page4.jsp">
 <input type=hidden name=posted value=true/>
-<div class=question>Next, consider the following scenario.<br>
+<div class=question>4. Next, consider the following scenario.<br>
 <br>
 Suppose you are developing a new feature for this project, and you
 realized that your changes could make the system insecure if your
 implementation is not correct. You decide to contact some of your
 colleagues to inspect your feature to ensure that no security
 vulnerabilities are being introduced. <br>
-What <b>factors</b> are most important to you in deciding who to work with in this situation?
+<br>
+What factors are most important to you in deciding <b>who to work with</b> in this situation?
 
 <div class=instructions>Please assign 24 points to each of the
 following factors.</div>
@@ -78,8 +79,11 @@ following factors.</div>
 		}
 	%>
 </table>
-Points left: <input maxlength="2" size=2 type=text name="total"
+Points left: <input maxlength="2" size=2 type=text disabled="disabled" name="total"
 	value="24" /></div>
+
+<div class=pageNum>Page 3 of 4</div>
+<div class=clear></div>
 
 <input type=button value="Next >>" id=next onclick="checkSum(this.form)">
 <input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>

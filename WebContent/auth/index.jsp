@@ -15,10 +15,12 @@
 <h2>Welcome!</h2>
 
 Thank you for taking this survey! 
-
-
- Before we get started, please confirm
-that this is you. <%
+<br><br>
+Something about us not 
+<br><br>
+Also, please note that this survey is <b>not</b> an evaluation of your performance. Our research is directed at examining the structure of the entire team, not on any single developer. 
+<br><br>
+ Before we get started, please confirm your identity. <%
 	DeveloperDAO id = new DeveloperDAO();
 	Developer dev = id.getDeveloper(request.getUserPrincipal().getName());
 %>

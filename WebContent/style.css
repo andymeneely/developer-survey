@@ -7,10 +7,10 @@ body {
 	font-family: Verdana, serif;
 	font-size: 12px;
 }
-td{
-	/* Looks like a Firefox bug... */
+
+td { /* Looks like a Firefox bug... */
 	font-family: Verdana, serif;
-	font-size: 12px; 	
+	font-size: 12px;
 }
 
 #wrap {
@@ -53,12 +53,13 @@ h2 {
 	margin-bottom: 5px;
 }
 
-div.login{
-	text-align:center;	
+div.login {
+	text-align: center;
 }
-div.login table{
+
+div.login table {
 	margin-left: auto;
-	margin-right: auto;	
+	margin-right: auto;
 }
 
 div.question {
@@ -69,14 +70,21 @@ div.question {
 	padding-right: 3px;
 	padding-top: 3px;
 	padding-bottom: 3px;
+	-moz-border-radius: 4px 4px 4px 4px;
 }
 
 div.question td {
-	font-size: 12px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	border-top: 1pt solid black;
+	border-bottom: 1pt solid black;
+}
+
+div.question tr {
 }
 
 div.instructions {
-	font-style: italic;	
+	font-style: italic;
 	margin-top: 5px;
 	margin-bottom: 10px;
 	padding-left: 3px;
@@ -88,14 +96,26 @@ div.instructions {
 .clear {
 	clear: both;
 }
-#next{
+
+#next {
 	float: right;
 }
+
 #back {
 	float: left;
 }
-div.pageNum{
+
+div.pageNum {
 	font-size: 80%;
-	font-style: italic;	
+	font-style: italic;
 	float: right;
+}
+
+div.errorList {
+	background-color: #FF9999;
+	padding-left: 10px;
+}
+
+div.errorList ul {
+	padding-left: 20px;
 }
