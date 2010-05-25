@@ -63,29 +63,11 @@ $(document).ready(function(){
 an <b>expert</b> on this particular project?
 <div class=instructions>Please enter up to 5 names or email addresses</div>
 
-<table>
-	<tr>
-		<td><input class="wickEnabled" size=70 type=text
-			name="person1" id="id_person1" value=""></td>
-	</tr>
-	<tr>
-		<td><input class="wickEnabled" size=70 type=text
-			name="person2" id="id_person2" value=""></td>
-	</tr>
-	<tr>
-		<td><input class="wickEnabled" size=70 type=text
-			name="person3" id="id_person3" value=""></td>
-	</tr>
-	<tr>
-		<td><input class="wickEnabled" size=70 type=text
-			name="person4" id="id_person4" value=""></td>
-	</tr>
-	<tr>
-		<td><input class="wickEnabled" size=70 type=text
-			name="person5" id="id_person5" value=""></td>
-	</tr>
-</table>
-
+<input size=70 type=text name="person" id="id_person1" value=""><br>
+<input size=70 type=text name="person" id="id_person2" value=""><br>
+<input size=70 type=text name="person" id="id_person3" value=""><br>
+<input size=70 type=text name="person" id="id_person4" value=""><br>
+<input size=70 type=text name="person" id="id_person5" value=""><br>
 </div>
 
 <div class=pageNum>Page 4 of 4</div>
