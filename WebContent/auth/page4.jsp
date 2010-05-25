@@ -58,7 +58,7 @@ $(document).ready(function(){
 <h1>About experts</h1>
 
 <form method=post action="finish.jsp">
-<input type=hidden name=posted value=true/>
+<input type=hidden name="posted" value="true"/>
 <div class=question>5. Next, who on this team would you consider be
 an <b>expert</b> on this particular project?
 <div class=instructions>Please enter up to 5 names or email addresses</div>

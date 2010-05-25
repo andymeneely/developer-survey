@@ -52,7 +52,7 @@
 <h1>About decision-making</h1>
 
 <form method=post action="page4.jsp">
-<input type=hidden name=posted value=true/>
+<input type=hidden name="posted" value="true"/>
 <div class=question>4. Next, consider the following scenario.<br>
 <br>
 Suppose you are developing a new feature for this project, and you
