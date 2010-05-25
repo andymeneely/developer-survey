@@ -8,6 +8,7 @@ INSERT INTO Users(User,Password,Role,Name,Project) VALUES
 ('kinch@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Sgt. Kinchloe', 'Developer Survey'),
 ('lebeau@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Lebeau', 'Developer Survey'),
 ('newkirk@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Newkirk', 'Developer Survey')
+('anotherguy@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy', 'Another Project'),
 ;
 
 INSERT INTO Distance(User1, User2, Distance) VALUES
