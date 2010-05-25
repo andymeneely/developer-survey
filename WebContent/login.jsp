@@ -20,6 +20,7 @@ String userValue = "";
 String passValue = "";
 if(new InitialPasswordValidator().isValidUserPass(session.getAttribute("user"),session.getAttribute("password"))){
 	userValue = session.getAttribute("user").toString();
+	passValue= session.getAttribute("password").toString();
 }
 %>
 
@@ -31,7 +32,7 @@ if(new InitialPasswordValidator().isValidUserPass(session.getAttribute("user"),s
 	</tr>
 	<tr>
 		<td>Password:</td>
-		<td><input type=password name="j_password"></td>
+		<td><input type=password name="j_password" value="<%=passValue%>"></td>
 	</tr>
 	<tr>
 		<td colspan=100%><input type=submit value="Login" /></td>
