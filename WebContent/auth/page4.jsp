@@ -5,27 +5,59 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.ProjectTasks"%>
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.AutoSuggestList"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.AutoSuggestList"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
 <head>
 <title>Developer Survey</title>
-<link rel="stylesheet" type="text/css" href="./wick.css" />
+<link href="jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
-<style>
-</style>
+
+<script type="text/javascript">
+teammates = <%=new AutoSuggestList().getAllTeammatesArray(request.getUserPrincipal().getName())%>;
+$(document).ready(function(){
+	$("input#id_person1").autocomplete({ 
+		source: teammates,
+		delay: 0,
+		minLength: 0
+	});
+	$("input#id_person2").autocomplete({
+	    source: teammates,
+	    delay: 0,
+		minLength: 0
+	});
+	$("input#id_person3").autocomplete({
+	    source: teammates,
+	    delay: 0,
+		minLength: 0
+	});
+	$("input#id_person4").autocomplete({
+	    source: teammates,
+	    delay: 0,
+		minLength: 0
+	});
+	$("input#id_person5").autocomplete({
+	    source: teammates,
+	    delay: 0,
+		minLength: 0
+	});
+  });
+</script>
 
 </head>
 <body>
 <div id=wrap>
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
-<script type="text/javascript">
-collection = <%=new AutoSuggestList().getAllTeammatesArray(request
-							.getUserPrincipal().getName())%>;
-</script>
+<script>
 
+</script>
 <h1>About experts</h1>
 
-<form method=post action="finish.jsp" onsubmit="return checkForm();">
+<form method=post action="finish.jsp">
 <div class=question>Next, who on this team would you consider be
 an <b>expert</b> on this particular project?
 <div class=instructions>Please enter up to 5 names or email addresses</div>
@@ -33,36 +65,36 @@ an <b>expert</b> on this particular project?
 <table>
 	<tr>
 		<td><input class="wickEnabled" size=70 type=text
-			name="person1" value=""></td>
+			name="person1" id="id_person1" value=""></td>
 	</tr>
 	<tr>
 		<td><input class="wickEnabled" size=70 type=text
-			name="person2" value=""></td>
+			name="person2" id="id_person2" value=""></td>
 	</tr>
 	<tr>
 		<td><input class="wickEnabled" size=70 type=text
-			name="person3" value=""></td>
+			name="person3" id="id_person3" value=""></td>
 	</tr>
 	<tr>
 		<td><input class="wickEnabled" size=70 type=text
-			name="person4" value=""></td>
+			name="person4" id="id_person4" value=""></td>
 	</tr>
 	<tr>
 		<td><input class="wickEnabled" size=70 type=text
-			name="person5" value=""></td>
+			name="person5" id="id_person5" value=""></td>
 	</tr>
 </table>
 
 </div>
 
-<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <input type=submit value="Next >>" id=next>
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <div class=clear></div>
 
 </form>
 
 
-<script type="text/javascript" language="JavaScript" src="./wick.js"></script>
+
 </div></div></div></body>
 
 </html>
