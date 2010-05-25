@@ -42,8 +42,8 @@ working relationship with each of these people.
 	%>
 </table>
 
-<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <input type=submit value="Next >>" id=next>
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <div class=clear></div>
 
 

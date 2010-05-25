@@ -36,8 +36,8 @@ of this team have you worked with in the last month? Include in your
 count both in-person and online interactions. Do not include yourself in this count.<br>
 <input name="numteammates" value="" size=3></div>
 
-<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <input type=submit value="Next >>" id=next>
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <div class=clear></div>
 
 </form>

@@ -80,8 +80,8 @@ following factors.</div>
 Points left: <input maxlength="2" size=2 type=text name="total"
 	value="24" /></div>
 
-<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <input type=button value="Next >>" id=next onclick="checkSum(this.form)">
+<input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <div class=clear></div>
 </form>
 </div></div></div></body>
