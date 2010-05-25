@@ -16,14 +16,40 @@
 <div id=wrap>
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
+
+<%
+String posted = request.getParameter("posted");
+if("true".equals(request.getParameter("posted"))){
+	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
+	List<String> errors = new ArrayList<String>();
+	errors.addAll(save.saveDistanceTo(request));
+	if(errors.size() > 0){
+%>
+<div class=errorList>
+Oops! There was an error with what you entered.
+<ul>
+<% for(String error : errors) { %>
+	<li><%=error %></li>
+<%} %>
+</ul>
+</div>
+
+<%
+	} else{
+		response.sendRedirect("page3.jsp");
+	}
+	
+}
+%>
+
 <%
 List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal().getName());
 %>
 
 <h1>About your team</h1>
 
-<form method=post action="page3.jsp">
-<input type=hidden name=posted value=true/>
+<form method=post action="page2.jsp">
+<input type=hidden name="posted" value="true"/>
 
 <br>
 <div class=question>

@@ -3,6 +3,8 @@ package edu.ncsu.csc.realsearch.devsurvey;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,26 @@ public class SaveAnswers {
 
 	public SaveAnswers(String username) {
 		this.username = username;
+	}
+
+	public List<String> saveDistanceTo(HttpServletRequest req) throws InputValidationException, SQLException {
+		Set keySet = req.getParameterMap().keySet();
+		List<String> errors = new ArrayList<String>();
+		String answer = "";
+		for (Object object : keySet) {
+			String key = object.toString();
+			if (key.startsWith("distanceTo")) {
+				String input = req.getParameter(key);
+				try {
+					int value = Integer.valueOf(input);
+					answer += key.substring("distanceTo".length()) + "-" + value + ", ";
+				} catch (Throwable t) {
+					// ignore it if it's wrong
+				}
+			}
+		}
+		new SurveyDAO().saveAnswer(username, 3, answer);
+		return errors;
 	}
 
 	public List<String> saveTasks(HttpServletRequest req) throws InputValidationException, SQLException {
