@@ -6,6 +6,8 @@
 <title>Developer Survey</title>
 </head>
 <body>
+<%session.invalidate(); %>
 
+You are now logged out. <a href="<%=request.getContextPath()%>">Log back in.</a>
 </body>
 </html>

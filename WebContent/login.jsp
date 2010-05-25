@@ -15,13 +15,17 @@ if("true".equals(request.getParameter("loginError"))){
 	<div class=fail>Login failed - make sure you have the right username and password</div>
 	<%
 }
+String userValue = ""; 
+if(session.getAttribute("user")!=null){
+	userValue = session.getAttribute("user").toString();
+}
 %>
 
 <form method=post action="j_security_check">
 <table>
 	<tr>
 		<td>Username:</td>
-		<td><input name="j_username"></td>
+		<td><input name="j_username" value="<%=userValue%>"></td>
 	</tr>
 	<tr>
 		<td>Password:</td>
