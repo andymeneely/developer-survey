@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<html>
+
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.InitialPasswordValidator"%><html>
 <head>
 <title>Developer Survey</title>
 </head>
@@ -16,7 +17,8 @@ if("true".equals(request.getParameter("loginError"))){
 	<%
 }
 String userValue = ""; 
-if(session.getAttribute("user")!=null){
+String passValue = "";
+if(new InitialPasswordValidator().isValidUserPass(session.getAttribute("user"),session.getAttribute("password"))){
 	userValue = session.getAttribute("user").toString();
 }
 %>
