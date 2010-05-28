@@ -4,6 +4,11 @@ import java.util.List;
 
 public class InputValidationException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6838132155857526037L;
+	
 	private final List<String> errors;
 
 	public InputValidationException(List<String> errors) {
