@@ -111,4 +111,10 @@ public class SaveAnswers {
 		new SurveyDAO().saveAnswer(username, 4, answer);
 		return errors;
 	}
+	
+	//TODO Add a "comment about this" field for every page.
+	//TODO Add the field for feedback at the end
+	//TODO Change all mentions of "this project" to the actual project
+	//TODO Fix IE centering bug
+	//TODO Test in Chrome and IE.
 }

@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 public class DeveloperGenerator {
 	private static Random rnd = new Random();
 
+	//TODO Redo this so it's statistically better.
 	public List<Developer> getDevelopers(String username) throws SQLException {
 		Connection conn = null;
 		ResultSet rs = null;
