@@ -93,20 +93,10 @@ public class SaveAnswers {
 			throws InputValidationException, SQLException {
 		String answer = "";
 		List<String> errors = new ArrayList<String>();
-		int total = 0;
 		for (int i = 0; i < numFields; i++) {
-			String weightStr = req.getParameter(paramKey + i);
-			int weight = 0;
-			try {
-				weight = Integer.valueOf(weightStr);
-			} catch (Throwable t) {/* Default to 0 instead of complaining */
-			}
-			total += weight;
-			answer += paramKey + i + ":" + weight + ", ";
-		}
-		if (total != questionNumber) {
-			errors.add("Your answer is too long - please shorten.");
-			answer = "wrong attempt: " + total;
+			String person = req.getParameter(paramKey + i);
+			//TODO Finish this.
+			answer += person;
 		}
 		new SurveyDAO().saveAnswer(username, 4, answer);
 		return errors;

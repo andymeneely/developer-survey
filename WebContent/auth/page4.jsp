@@ -82,7 +82,7 @@ $(document).ready(function(){
 </script>
 <h1>About experts</h1>
 
-<form method=post action="finish.jsp">
+<form method=post action="page4.jsp">
 <input type=hidden name="posted" value="true"/>
 <div class=question>5. Next, who on this project do you <b>work the closest with</b>? Consider both online and in-person collaborators.
 <div class=instructions>Please enter up to 5 names or email addresses in the following fields. 
