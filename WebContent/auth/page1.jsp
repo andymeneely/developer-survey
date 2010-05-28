@@ -67,7 +67,7 @@ of this team have you worked with in the last month? Include in your
 count both in-person and online interactions. Do not include yourself in this count.<br>
 <input name="numteammates" value="" size=3></div>
 
-<div class=pageNum>Page 1 of 4</div>
+<div class=pageNum>Page 1 of 5</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>

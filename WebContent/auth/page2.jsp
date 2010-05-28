@@ -76,7 +76,7 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 </table>
 </div>
 
-<div class=pageNum>Page 2 of 4</div>
+<div class=pageNum>Page 2 of 5</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>
