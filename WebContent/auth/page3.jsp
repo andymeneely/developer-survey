@@ -82,7 +82,7 @@ Oops! There was an error with what you entered.
 <div class=question>4. Next, consider the following scenario.<br>
 <br>
 Suppose you are developing a new feature for this project, and you
-realized that your changes could make the system insecure if your
+realized that your changes could make the system <b>insecure</b> if your
 implementation is not correct. You decide to contact some of your
 colleagues to inspect your feature to ensure that no security
 vulnerabilities are being introduced. <br>
