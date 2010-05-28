@@ -115,6 +115,8 @@ Points left: <input maxlength="2" size=2 type=text disabled="disabled" name="tot
 <input type=button onclick="javascript:history.go(-1)" value="<< Back" id=back>
 <div class=clear></div>
 </form>
-</div></div></div></body>
+</div>
+<%@include file="/footer.jsp" %>
+</div></div></body>
 
 </html>

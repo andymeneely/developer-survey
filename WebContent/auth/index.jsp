@@ -12,18 +12,21 @@
 <div id=wrap>
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
+<%
+	DeveloperDAO id = new DeveloperDAO();
+	Developer dev = id.getDeveloper(request.getUserPrincipal().getName());
+%>
+
 <h2>Welcome!</h2>
 
 Thank you for taking this survey! 
 <br><br>
-Something about us not 
+The following survey should take about 10 minutes. It will ask some questions about 
+the software development team you are a member of. The questions are customized 
+to your software project. Please answer the questions as best you can. 
+
 <br><br>
-Also, please note that this survey is <b>not</b> an evaluation of your performance. Our research is directed at examining the structure of the entire team, not on any single developer. 
-<br><br>
- Before we get started, please confirm your identity. <%
-	DeveloperDAO id = new DeveloperDAO();
-	Developer dev = id.getDeveloper(request.getUserPrincipal().getName());
-%>
+ Before we get started, please confirm your identity and your project. 
 
 <div class=question>
 <table>

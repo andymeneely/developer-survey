@@ -85,6 +85,8 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 
 
 </form>
-</div></div></div></body>
+</div>
+<%@include file="/footer.jsp" %>
+</div></div></body>
 
 </html>

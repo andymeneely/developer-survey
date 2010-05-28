@@ -75,7 +75,9 @@ count both in-person and online interactions. Do not include yourself in this co
 <div class=clear></div>
 
 </form>
-</div></div></div>
+</div>
+<%@include file="/footer.jsp" %>
+</div></div>
 </body>
 
 </html>

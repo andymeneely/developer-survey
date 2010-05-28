@@ -106,6 +106,8 @@ To use the auto-suggest, start typing a name or email address in any field.</div
 
 
 
-</div></div></div></body>
+</div>
+<%@include file="/footer.jsp" %>
+</div></div></body>
 
 </html>
