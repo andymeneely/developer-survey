@@ -64,7 +64,7 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 		(<%=dev.getUsername()%>) <!-- <%=dev.getDistanceTo()%> --></td>
 		<td><select name="distanceTo<%=dev.getUsername()%>">
 			<option value=4>I have never heard of this person before.</option>
-			<option value=3>I recognize this person's name, but I don't know much about them.</option>
+			<option value=3>I recognize this name, but I don't know much about them.</option>
 			<option value=2>I know who this person is, but I have not worked with them directly.</option>
 			<option value=1>I have worked with this person on this project.</option>
 
