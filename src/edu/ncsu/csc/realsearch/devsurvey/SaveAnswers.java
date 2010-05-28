@@ -3,7 +3,6 @@ package edu.ncsu.csc.realsearch.devsurvey;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ public class SaveAnswers {
 		this.username = username;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<String> saveDistanceTo(HttpServletRequest req) throws InputValidationException, SQLException {
 		Set keySet = req.getParameterMap().keySet();
 		List<String> errors = new ArrayList<String>();
@@ -63,6 +63,52 @@ public class SaveAnswers {
 		} catch (Throwable t) {
 			errors.add("Please enter a valid integer for the number of teammates.");
 		}
+		return errors;
+	}
+
+	public List<String> saveWeights(HttpServletRequest req, String paramKey, int numFields, int requiredTotal)
+			throws InputValidationException, SQLException {
+		String answer = "";
+		List<String> errors = new ArrayList<String>();
+		int total = 0;
+		for (int i = 0; i < numFields; i++) {
+			String weightStr = req.getParameter(paramKey + i);
+			int weight = 0;
+			try {
+				weight = Integer.valueOf(weightStr);
+			} catch (Throwable t) {/* Default to 0 instead of complaining */
+			}
+			total += weight;
+			answer += paramKey + i + ":" + weight + ", ";
+		}
+		if (total != requiredTotal) {
+			errors.add("Please assign exactly " + requiredTotal + " points.");
+			answer = "wrong attempt: " + total;
+		}
+		new SurveyDAO().saveAnswer(username, 4, answer);
+		return errors;
+	}
+
+	public List<String> savePeople(HttpServletRequest req, String paramKey, int numFields, int questionNumber)
+			throws InputValidationException, SQLException {
+		String answer = "";
+		List<String> errors = new ArrayList<String>();
+		int total = 0;
+		for (int i = 0; i < numFields; i++) {
+			String weightStr = req.getParameter(paramKey + i);
+			int weight = 0;
+			try {
+				weight = Integer.valueOf(weightStr);
+			} catch (Throwable t) {/* Default to 0 instead of complaining */
+			}
+			total += weight;
+			answer += paramKey + i + ":" + weight + ", ";
+		}
+		if (total != questionNumber) {
+			errors.add("Your answer is too long - please shorten.");
+			answer = "wrong attempt: " + total;
+		}
+		new SurveyDAO().saveAnswer(username, 4, answer);
 		return errors;
 	}
 }

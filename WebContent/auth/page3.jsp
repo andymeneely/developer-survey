@@ -4,7 +4,9 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.Developer"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.ProjectTasks"%>
 <%@page import="java.util.List"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
+<%@page import="java.util.ArrayList"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -13,6 +15,30 @@
 <div id=wrap>
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
+
+<%
+String posted = request.getParameter("posted");
+if("true".equals(request.getParameter("posted"))){
+	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
+	List<String> errors = new ArrayList<String>();
+	errors.addAll(save.saveWeights(request, "total", 8, 24));
+	if(errors.size() > 0){
+%>
+<div class=errorList>
+Oops! There was an error with what you entered.
+<ul>
+<% for(String error : errors) { %>
+	<li><%=error %></li>
+<%} %>
+</ul>
+</div>
+<%
+	} else{
+		response.sendRedirect("page4.jsp");
+	}
+}
+%>
+
 <%
 	String[] choice = {
 			"I work with this person frequently.",
@@ -51,7 +77,7 @@
 
 <h1>About decision-making</h1>
 
-<form method=post action="page4.jsp">
+<form method=post action="page3.jsp">
 <input type=hidden name="posted" value="true"/>
 <div class=question>4. Next, consider the following scenario.<br>
 <br>
@@ -82,7 +108,7 @@ following factors.</div>
 Points left: <input maxlength="2" size=2 type=text disabled="disabled" name="total"
 	value="24" /></div>
 
-<div class=pageNum>Page 3 of 4</div>
+<div class=pageNum>Page 3 of 5</div>
 <div class=clear></div>
 
 <input type=button value="Next >>" id=next onclick="checkSum(this.form)">
