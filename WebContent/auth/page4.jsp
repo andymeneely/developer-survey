@@ -23,7 +23,7 @@ String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
-	errors.addAll(save.savePeople(request,"teammate",5,5));
+	errors.addAll(save.savePeople(request,"person",5,5));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
@@ -88,11 +88,11 @@ $(document).ready(function(){
 <div class=instructions>Please enter up to 5 names or email addresses in the following fields. 
 To use the auto-suggest, start typing a name or email address in any field.</div>
 
-<input size=70 type=text name="person" id="id_person1" value=""><br>
-<input size=70 type=text name="person" id="id_person2" value=""><br>
-<input size=70 type=text name="person" id="id_person3" value=""><br>
-<input size=70 type=text name="person" id="id_person4" value=""><br>
-<input size=70 type=text name="person" id="id_person5" value=""><br>
+<input size=70 type=text name="person1" id="id_person1" value=""><br>
+<input size=70 type=text name="person2" id="id_person2" value=""><br>
+<input size=70 type=text name="person3" id="id_person3" value=""><br>
+<input size=70 type=text name="person4" id="id_person4" value=""><br>
+<input size=70 type=text name="person5" id="id_person5" value=""><br>
 </div>
 
 <div class=pageNum>Page 4 of 5</div>

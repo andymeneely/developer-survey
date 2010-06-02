@@ -93,18 +93,17 @@ public class SaveAnswers {
 			throws InputValidationException, SQLException {
 		String answer = "";
 		List<String> errors = new ArrayList<String>();
-		for (int i = 0; i < numFields; i++) {
+		for (int i = 1; i <= numFields; i++) {
 			String person = req.getParameter(paramKey + i);
-			//TODO Finish this.
-			answer += person;
+			answer += person + ", ";
 		}
-		new SurveyDAO().saveAnswer(username, 4, answer);
+		new SurveyDAO().saveAnswer(username, questionNumber, answer);
 		return errors;
 	}
-	
-	//TODO Add a "comment about this" field for every page.
-	//TODO Add the field for feedback at the end
-	//TODO Change all mentions of "this project" to the actual project
-	//TODO Fix IE centering bug
-	//TODO Test in Chrome and IE.
+
+	// TODO Add a "comment about this" field for every page.
+	// TODO Add the field for feedback at the end
+	// TODO Change all mentions of "this project" to the actual project
+	// TODO Fix IE centering bug
+	// TODO Test in Chrome and IE.
 }
