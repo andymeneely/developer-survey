@@ -23,6 +23,7 @@ if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.saveDistanceTo(request));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 2));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
@@ -77,6 +78,8 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 	%>
 </table>
 </div>
+
+<%@include file="/commentSection.jsp" %>
 
 <div class=pageNum>Page 2 of 5</div>
 <div class=clear></div>

@@ -22,6 +22,7 @@ if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.saveWeights(request, "total", 8, 24));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 3));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
@@ -107,6 +108,8 @@ following factors.</div>
 </table>
 Points left: <input maxlength="2" size=2 type=text disabled="disabled" name="total"
 	value="24" /></div>
+
+<%@include file="/commentSection.jsp" %>
 
 <div class=pageNum>Page 3 of 5</div>
 <div class=clear></div>

@@ -24,6 +24,7 @@ if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.savePeople(request,"person",5,5));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 4));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
@@ -94,6 +95,8 @@ To use the auto-suggest, start typing a name or email address in any field.</div
 <input size=70 type=text name="person4" id="id_person4" value=""><br>
 <input size=70 type=text name="person5" id="id_person5" value=""><br>
 </div>
+
+<%@include file="/commentSection.jsp" %>
 
 <div class=pageNum>Page 4 of 5</div>
 <div class=clear></div>

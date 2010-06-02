@@ -23,6 +23,7 @@ if("true".equals(request.getParameter("posted"))){
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.saveTasks(request));
 	errors.addAll(save.saveNumMembers(request.getParameter("numteammates")));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 1));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
@@ -65,7 +66,10 @@ Oops! There was an error with what you entered.
 <div class=question>2. In your estimation, how many different members
 of this team have you worked with in the last month? Include in your
 count both in-person and online interactions. Do not include yourself in this count.<br>
-<input name="numteammates" value="" size=3></div>
+<input name="numteammates" value="" size=3>
+</div>
+
+<%@include file="/commentSection.jsp" %>
 
 <div class=pageNum>Page 1 of 5</div>
 <div class=clear></div>

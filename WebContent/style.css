@@ -115,6 +115,12 @@ div.pageNum {
 	float: right;
 }
 
+div.success{
+	background-color: #99FF99;
+	border-color: #99AA99;
+	padding: 5pt;
+}
+
 div.errorList {
 	background-color: #FF9999;
 	padding-left: 10px;
@@ -122,4 +128,16 @@ div.errorList {
 
 div.errorList ul {
 	padding-left: 20px;
+}
+
+div.commentSection{
+	font-size: 80%;
+}
+
+div.commentSection a{
+	text-decoration: none;	
+}
+
+#commentBox{
+	display: none;
 }
