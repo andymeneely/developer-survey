@@ -101,13 +101,14 @@ public class SaveAnswers {
 		return errors;
 	}
 
-	public List<String> saveComment(String comment, int questionNumber)
-			throws SQLException {
+	public List<String> saveComment(String comment, int questionNumber) throws SQLException {
 		List<String> errors = new ArrayList<String>();
-		if (comment!=null && comment.length() > 500)
-			errors.add("Please keep your comments to 500 characters or less.");
-		else
-			new SurveyDAO().saveAnswer(username, questionNumber, comment);
+		if (comment != null && comment.length() > 0) {
+			if (comment.length() > 500)
+				errors.add("Please keep your comments to 500 characters or less.");
+			else
+				new SurveyDAO().saveAnswer(username, questionNumber, comment);
+		} // no comment, no problem.
 		return errors;
 	}
 
