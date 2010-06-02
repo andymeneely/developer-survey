@@ -13,12 +13,13 @@
 <div id=content>
 <div class=login>
 
-Please enter the username and password you were given in the email.
+Please enter the username and password you were given in the email.<br>
+Your username is most likely your email address.<br><br><br>
 
 <%
 if("true".equals(request.getParameter("loginError"))){
 	%>
-	<div class=fail>Login failed - make sure you have the right username and password</div>
+	<div class=errorList>Login failed - make sure you have the right username and password</div>
 	<%
 }
 String userValue = ""; 
