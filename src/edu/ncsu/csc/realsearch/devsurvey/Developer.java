@@ -6,6 +6,14 @@ public class Developer {
 	private String project = "";
 	private double distanceTo = 0.0;
 
+	public Developer() {
+	}
+	
+	public Developer(String username, double distanceTo) {
+		this.username = username;
+		this.distanceTo = distanceTo;
+	}
+
 	public double getDistanceTo() {
 		return distanceTo;
 	}
