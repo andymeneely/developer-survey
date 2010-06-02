@@ -1,8 +1,10 @@
 package edu.ncsu.csc.realsearch.devsurvey;
 
 public enum ProjectTasks {
-	Development("Writing code."), Testing("Write and/or execute tests."), Design("Design"), Management(
-			"Project management"), Inspection("Code inspection."), FixBugs("Fix defects.");
+	Development("Write code"), Testing("Write and/or execute tests"), Design("Design software"), Management(
+			"Manage people"), Inspection("Inspect other peoples' code"), FixBugs("Fix defects."), AnswerCustomers(
+			"Answer questions from customers"), AnswerDevelopment("Answer technical questions from fellow developers"), Steering(
+			"Steer overall the direction of the project");
 
 	private final String description;
 
