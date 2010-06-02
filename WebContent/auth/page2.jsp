@@ -7,7 +7,9 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%>
-<%@page import="java.util.ArrayList"%><html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperDAO"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.GetProjectName"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -18,6 +20,9 @@
 <div id=content>
 
 <%
+String thisProject = GetProjectName.fromSession(request);
+
+
 String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
@@ -54,7 +59,7 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 
 <br>
 <div class=question>
-3. Next, <em>in the context of this project</em>, what is your connection to the following people?
+3. Next, <em>in the context of <%=thisProject%></em>, what is your connection to the following people?
 <br><br>
 <em>The following list was obtained from mailing lists, version control change logs, and defect reports.</em>
 <br><br> 

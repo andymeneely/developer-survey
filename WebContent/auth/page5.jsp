@@ -9,7 +9,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
-<%@page import="java.util.ArrayList"%><html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.GetProjectName"%><html>
 
 <head>
 <title>Developer Survey</title>
@@ -19,6 +20,8 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
 
 <%
+String thisProject = GetProjectName.fromSession(request);
+
 String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
@@ -86,7 +89,7 @@ $(document).ready(function(){
 <form method=post action="page5.jsp">
 <input type=hidden name="posted" value="true"/>
 <div class=question>6. Next, who on this team do you consider be
-an <b>expert</b> on this project? Your answers can include anybody on this project (i.e. you don't need to have worked with them, or even know them). 
+an <b>expert</b> on <%=thisProject%>? Your answers can include anybody involved with <%=thisProject%> (i.e. you don't need to have worked with them, or even know them). 
 <div class=instructions>Please enter up to 5 names or email addresses in the following fields. 
 To use the auto-suggest, start typing a name or email address in any field.</div>
 

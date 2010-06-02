@@ -112,7 +112,6 @@ public class SaveAnswers {
 		return errors;
 	}
 
-	// TODO Change all mentions of "this project" to the actual project
 	// TODO Fix IE centering bug
 	// TODO Test in Chrome and IE.
 	// TODO Add a catch-all for the exception

@@ -6,7 +6,9 @@
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
-<%@page import="java.util.ArrayList"%><html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperDAO"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.GetProjectName"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -17,6 +19,8 @@
 <div id=content>
 
 <%
+String thisProject = GetProjectName.fromSession(request);
+
 String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
@@ -82,7 +86,7 @@ Oops! There was an error with what you entered.
 <input type=hidden name="posted" value="true"/>
 <div class=question>4. Next, consider the following scenario.<br>
 <br>
-Suppose you are developing a new feature for this project, and you
+Suppose you are developing a new feature for <%=thisProject%>, and you
 realized that your changes could make the system <b>insecure</b> if your
 implementation is not correct. You decide to contact some of your
 colleagues to inspect your feature to ensure that no security

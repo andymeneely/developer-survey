@@ -6,7 +6,9 @@
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%><html>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.InputValidationException"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperDAO"%>
+<%@page import="edu.ncsu.csc.realsearch.devsurvey.GetProjectName"%><html>
 <head>
 <title>Developer Survey</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/style.css" />
@@ -17,6 +19,8 @@
 <div id=content>
 
 <%
+String thisProject = GetProjectName.fromSession(request);
+
 String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
@@ -47,7 +51,7 @@ Oops! There was an error with what you entered.
 
 <form method=post action="page1.jsp">
 <input type=hidden name="posted" value="true"/>
-<div class=question>1. On this team, I perform the following tasks
+<div class=question>1. On <%=thisProject%>, I perform the following tasks
 (check all that apply).
 <table>
 	<%
@@ -64,8 +68,8 @@ Oops! There was an error with what you entered.
 </div>
 
 <div class=question>2. In your estimation, how many different members
-of this team have you worked with in the last month? Include in your
-count both in-person and online interactions. Do not include yourself in this count.<br>
+of this team have you worked with in the last month on <%=thisProject%>? Include in your
+count both in-person and online interactions. <br>Do not include yourself in this count.<br>
 <input name="numteammates" value="" size=3>
 </div>
 
