@@ -13,14 +13,17 @@ td { /* Looks like a Firefox bug... */
 	font-size: 12px;
 }
 
+input{
+	padding: 1px 1px 1px 1px;
+	margin: 2px 2px 2px 2px;
+}
+
 #wrap {
-	
 }
 
 #container {
+	margin: auto;
 	width: 650px;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 #header {
@@ -79,9 +82,10 @@ div.question {
 
 div.question td {
 	padding-top: 5px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	border-top: 1pt solid black;
 	border-bottom: 1pt solid black;
+	vertical-align: middle;
 }
 
 div.question tr {
