@@ -22,10 +22,9 @@
 		</form-login-config>
 	</login-config>
 
-	<!-- 404 means page not found -->
 	<error-page>
-		<error-code>404</error-code>
-		<location>/errors/notfound.jsp</location>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
 	</error-page>
 
 	<!-- Define all of the roles here -->

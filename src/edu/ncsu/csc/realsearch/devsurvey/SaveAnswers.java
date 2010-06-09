@@ -114,5 +114,4 @@ public class SaveAnswers {
 
 	// TODO Fix IE centering bug
 	// TODO Test in Chrome and IE.
-	// TODO Add a catch-all for the exception
 }
