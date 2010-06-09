@@ -22,12 +22,13 @@
 Thank you for taking this survey! 
 <br><br>
 The following survey should take about 10 minutes. It will ask some questions about 
-the software development team you are a member of. The questions are customized 
-to your software project. Please answer the questions as best you can. 
-
+the software development team you are a member of. The questions are <b>customized</b> 
+to you and to this software project.
 <br><br>
- Before we get started, please confirm your identity and your project. 
-
+Please answer the questions as best you can. 
+You can leave a comment or question with any of your answers. 
+<br><br>
+Before we get started, please confirm your identity and your project. 
 <div class=question>
 <table>
 	<tr>

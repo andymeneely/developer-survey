@@ -95,7 +95,7 @@ vulnerabilities are being introduced. <br>
 What factors are most important to you in deciding <b>who to work with</b> in this situation?
 
 <div class=instructions>Please assign 24 points to each of the
-following factors.</div>
+following <%=choice.length%> factors, giving a higher weight for a higher importance.</div>
 
 <table>
 	<%

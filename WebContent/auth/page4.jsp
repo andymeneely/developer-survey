@@ -84,7 +84,7 @@ $(document).ready(function(){
 <script>
 
 </script>
-<h1>About experts</h1>
+<h1>About collaborators</h1>
 
 <form method=post action="page4.jsp">
 <input type=hidden name="posted" value="true"/>
