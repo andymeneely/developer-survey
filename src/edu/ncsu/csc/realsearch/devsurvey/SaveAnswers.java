@@ -111,7 +111,4 @@ public class SaveAnswers {
 		} // no comment, no problem.
 		return errors;
 	}
-
-	// TODO Fix IE centering bug
-	// TODO Test in Chrome and IE.
 }
