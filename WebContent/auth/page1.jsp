@@ -58,8 +58,8 @@ Oops! There was an error with what you entered.
 		for (ProjectTasks role : ProjectTasks.values()) {
 	%>
 	<tr>
-		<td><input type=checkbox name=roles value=<%=role.name()%>></td>
-		<td><%=role.getDescription()%></td>
+		<td><input type=checkbox name=roles value="<%=role.name()%>" id="<%=role.name()%>"></td>
+		<td><label for="<%=role.name()%>"><%=role.getDescription()%></label></td>
 	</tr>
 	<%
 		}
