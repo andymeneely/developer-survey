@@ -78,6 +78,7 @@ Given that information, feel free provide any comments below on either the resea
 <div class=clear></div>
 
 </div>
+<%@include file="/footer.jsp" %>
 </div>
 </div>
 </body>
