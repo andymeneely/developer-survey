@@ -1,0 +1,10 @@
+UPDATE `Users` SET password = concat(
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
+char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97))
+);
