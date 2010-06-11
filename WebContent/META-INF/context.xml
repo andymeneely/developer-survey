@@ -32,7 +32,6 @@
 		localDataSource="true"
 		debug="99"
 	    dataSourceName="jdbc/devsurvey"
-	    digest="MD5"
 		userTable="Users"
 		userNameCol="User"
 		userCredCol="Password"
