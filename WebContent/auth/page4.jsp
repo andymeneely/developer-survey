@@ -101,7 +101,36 @@ To use the auto-suggest, start typing a name or email address in any field. You 
 <input size=70 type=text name="person4" id="id_person4" value=""><br>
 <input size=70 type=text name="person5" id="id_person5" value=""><br>
 <br>
+<div class=teammatesList>
+<script>
+function toggleTeammates(){
+	var showPart = document.getElementById("showTeamList");
+	var hidePart = document.getElementById("hideTeamList");
+	if(showPart.style.display == "inline"){
+		showPart.style.display = "none";
+		hidePart.style.display = "block";
+	} else {
+		showPart.style.display = "inline";
+		hidePart.style.display = "none";
+	}
+	
+}
+</script>
 
+<div class="showTeammates" id="showTeamList" style="display: inline">
+<a href="javascript:toggleTeammates()">+ Show entire list</a>
+</div>
+
+<div class="hideTeammates" id="hideTeamList" >
+	<a href="javascript:toggleTeammates()">- Hide list</a>
+	<%@include file="/disclaimer.jsp" %>
+	<ul>
+	<%for(String teammate :  autoSuggest.getAllTeammates()){ %>
+		<li><%=teammate%></li>
+	<%} %>
+	</ul>
+</div>
+</div>
 
 
 </div>
