@@ -15,8 +15,8 @@
 		Do NOT change the "name=jdbc/itrust"
 		-->
 <Resource
-	username="root"
-	password="root"
+	username="devsurvey"
+	password="3aspeThu"
 	url="jdbc:mysql://localhost:3306/developersurvey?createDatabaseIfNotExist=true"		
 	name="jdbc/devsurvey"
 	auth="Container"
