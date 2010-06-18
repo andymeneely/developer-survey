@@ -1,0 +1,24 @@
+Hi,
+  We are software engineering researchers at North Carolina State University, studying developer collaboration in open source projects. We are currently doing a case study of the Wireshark project, and we are inviting you to take a short, 10-minute online survey about working in open source.
+
+The survey is customized to you and your team, personally. Do not be alarmed - we obtained your email and other information from public sources, including Wireshark's website, SVN repository, and release notes. We are also sending this email to 28 other developers on the Wireshark project.
+
+Each person who completes this survey is entered into a drawing to win a $50 gift certificate to Amazon.com. Additionally, by taking this survey, you will also get the satisfaction of helping a PhD student finish his dissertation :)
+
+Below is the link to access this survey. Note that this url is customized to you only, so please do not share this link with anyone else.
+
+Here is the url:
+http://agile.csc.ncsu.edu/DeveloperSurvey?user={email}&password={password}
+
+or, if the direct link doesn't work, go to http://agile.csc.ncsu.edu/DeveloperSurvey and use the following information:
+
+User: {email}
+Password: {password}
+
+If you can, please complete this survey by July 5th, 2010. Feel free to contact me at this email address if you have any questions. Thank you!
+
+     Sincerely,
+          Andy Meneely and Laurie Williams
+
+http://www4.ncsu.edu/~apmeneel/
+http://collaboration.csc.ncsu.edu/laurie/
