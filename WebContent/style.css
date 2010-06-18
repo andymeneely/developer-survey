@@ -13,12 +13,13 @@ td { /* Looks like a Firefox bug... */
 	font-size: 12px;
 }
 
-input{
+input {
 	padding: 1px 1px 1px 1px;
 	margin: 2px 2px 2px 2px;
 }
 
 #wrap {
+	
 }
 
 #container {
@@ -52,8 +53,8 @@ input{
 	text-align: left;
 }
 
-h1{
-	font-size: 18px;		
+h1 {
+	font-size: 18px;
 }
 
 h2 {
@@ -89,6 +90,7 @@ div.question td {
 }
 
 div.question tr {
+	
 }
 
 div.instructions {
@@ -119,7 +121,7 @@ div.pageNum {
 	float: right;
 }
 
-div.success{
+div.success {
 	background-color: #99FF99;
 	border-color: #99AA99;
 	padding: 5pt;
@@ -134,14 +136,47 @@ div.errorList ul {
 	padding-left: 20px;
 }
 
-div.commentSection{
+div.commentSection {
 	font-size: 80%;
 }
 
-div.commentSection a{
-	text-decoration: none;	
+div.commentSection a {
+	text-decoration: none;
 }
 
-#commentBox{
+#commentBox {
 	display: none;
 }
+
+div.disclaimer {
+	font-size: 80%;
+	font-style: italic;
+}
+
+div.teammatesList{
+	font-size: 90%;
+}
+
+div.teammatesList a{
+	text-decoration: none;
+}
+
+div.showTeammates{
+	display: inline;
+	padding: 5px 5px 5px 5px;
+}
+
+div#hideTeamList{
+	display: none;
+	height: 100px;
+	overflow: auto;
+	border: 1px solid grey;
+	-moz-border-radius: 4px 4px 4px 4px;
+	padding: 5px 5px 5px 5px;
+}
+
+div.hideTeammates li{
+	list-style-type: none;	
+	margin: 5px;
+}
+

@@ -13,7 +13,7 @@
 <div id=container><%@include file="/header.jsp"%>
 <div id=content>
 
-Version 1.0, deployed 6/17/2010 9:30am.
+Version 1.1, deployed 6/18/2010 9:30am.
 
 </div></div></div>
 </body>

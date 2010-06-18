@@ -44,35 +44,37 @@ Oops! There was an error with what you entered.
 		response.sendRedirect("page5.jsp");
 	}
 }
+
+AutoSuggestList autoSuggest = new AutoSuggestList(request.getUserPrincipal().getName());
 %>
 
 <script type="text/javascript">
-teammates = <%=new AutoSuggestList().getAllTeammatesArray(request.getUserPrincipal().getName())%>;
+teammates = <%=autoSuggest.getAllTeammatesArray()%>;
 $(document).ready(function(){
 	$("input#id_person1").autocomplete({ 
 		source: teammates,
 		delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person2").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person3").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person4").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person5").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
   });
 </script>
@@ -91,13 +93,17 @@ $(document).ready(function(){
 <input type=hidden name="posted" value="true"/>
 <div class=question>5. Next, who on <%=thisProject%> do you <b>work the closest with</b>? Consider both online and in-person collaborators.
 <div class=instructions>Please enter up to 5 names or email addresses in the following fields. 
-To use the auto-suggest, start typing a name or email address in any field.</div>
+To use the auto-suggest, start typing a name or email address in any field. You are not limited to this auto-suggest list, however.</div>
 
 <input size=70 type=text name="person1" id="id_person1" value=""><br>
 <input size=70 type=text name="person2" id="id_person2" value=""><br>
 <input size=70 type=text name="person3" id="id_person3" value=""><br>
 <input size=70 type=text name="person4" id="id_person4" value=""><br>
 <input size=70 type=text name="person5" id="id_person5" value=""><br>
+<br>
+
+
+
 </div>
 
 <%@include file="/commentSection.jsp" %>

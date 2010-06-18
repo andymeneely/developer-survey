@@ -44,35 +44,36 @@ Oops! There was an error with what you entered.
 		response.sendRedirect("finish.jsp");
 	}
 }
+AutoSuggestList autoSuggest = new AutoSuggestList(request.getUserPrincipal().getName());
 %>
 
 <script type="text/javascript">
-teammates = <%=new AutoSuggestList().getAllTeammatesArray(request.getUserPrincipal().getName())%>;
+teammates = <%=autoSuggest.getAllTeammatesArray()%>;
 $(document).ready(function(){
 	$("input#id_person1").autocomplete({ 
 		source: teammates,
 		delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person2").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person3").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person4").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
 	$("input#id_person5").autocomplete({
 	    source: teammates,
 	    delay: 0,
-		minLength: 0
+		minLength: 2
 	});
   });
 </script>
@@ -92,13 +93,45 @@ $(document).ready(function(){
 <div class=question>6. Next, who on this team do you consider be
 an <b>expert</b> on <%=thisProject%>? Your answers can include anybody involved with <%=thisProject%> (i.e. you don't need to have worked with them, or even know them). 
 <div class=instructions>Please enter up to 5 names or email addresses in the following fields. 
-To use the auto-suggest, start typing a name or email address in any field.</div>
+To use the auto-suggest, start typing a name or email address in any field. You are not limited to this auto-suggest list, however.</div>
 
 <input size=70 type=text name="person1" id="id_person1" value=""><br>
 <input size=70 type=text name="person2" id="id_person2" value=""><br>
 <input size=70 type=text name="person3" id="id_person3" value=""><br>
 <input size=70 type=text name="person4" id="id_person4" value=""><br>
 <input size=70 type=text name="person5" id="id_person5" value=""><br>
+
+<div class=teammatesList>
+<script>
+function toggleTeammates(){
+	var showPart = document.getElementById("showTeamList");
+	var hidePart = document.getElementById("hideTeamList");
+	if(showPart.style.display == "inline"){
+		showPart.style.display = "none";
+		hidePart.style.display = "block";
+	} else {
+		showPart.style.display = "inline";
+		hidePart.style.display = "none";
+	}
+	
+}
+</script>
+
+<div class="showTeammates" id="showTeamList" style="display: inline">
+<a href="javascript:toggleTeammates()">+ Show entire list</a>
+</div>
+
+<div class="hideTeammates" id="hideTeamList" >
+	<a href="javascript:toggleTeammates()">- Hide list</a>
+	<%@include file="/disclaimer.jsp" %>
+	<ul>
+	<%for(String teammate :  autoSuggest.getAllTeammates()){ %>
+		<li><%=teammate%></li>
+	<%} %>
+	</ul>
+</div>
+</div>
+
 </div>
 
 <%@include file="/commentSection.jsp" %>

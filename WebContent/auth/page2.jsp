@@ -62,8 +62,7 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 <div class=question>
 3. Next, <em>in the context of <%=thisProject%></em>, what is your connection to the following people?
 <br><br>
-<em>The following list was obtained from public websites, mailing lists, version control change logs, and defect reports.</em>
-<br><br> 
+<%@include file="/disclaimer.jsp" %>
 <table>
 	<%
 		for (Developer dev : devs) {
