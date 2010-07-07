@@ -2,23 +2,23 @@ DELETE FROM Users;
 DELETE FROM Distance;
 
 INSERT INTO Users(User,Password,Role,Name,Project) VALUES
-('apmeneel@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Andy Programmer', 'Developer Survey'),
-('carter@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Carter', 'Developer Survey'),
-('hogan@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user','Col. Hogan', 'Developer Survey'),
-('kinch@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Sgt. Kinchloe', 'Developer Survey'),
-('lebeau@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Lebeau', 'Developer Survey'),
-('newkirk@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Newkirk', 'Developer Survey'),
-('anotherguy@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy', 'Another Project'),
-('anotherguy2@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 2', 'Another Project'),
-('anotherguy3@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 3', 'Another Project'),
-('anotherguy4@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 4', 'Another Project'),
-('anotherguy5@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 5', 'Another Project'),
-('anotherguy6@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 6', 'Another Project'),
-('anotherguy7@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 7', 'Another Project'),
-('anotherguy8@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 8', 'Another Project'),
-('anotherguy9@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 9', 'Another Project'),
-('anotherguy10@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 10', 'Another Project'),
-('anotherguy11@andymeneely.com', '6f1ed002ab5595859014ebf0951522d9', 'user', 'Another Guy 11', 'Another Project')
+('apmeneel@andymeneely.com', 'test', 'user', 'Andy Programmer', 'Developer Survey'),
+('carter@andymeneely.com', 'test', 'user', 'Carter', 'Developer Survey'),
+('hogan@andymeneely.com', 'test', 'user','Col. Hogan', 'Developer Survey'),
+('kinch@andymeneely.com', 'test', 'user', 'Sgt. Kinchloe', 'Developer Survey'),
+('lebeau@andymeneely.com', 'test', 'user', 'Lebeau', 'Developer Survey'),
+('newkirk@andymeneely.com', 'test', 'user', 'Newkirk', 'Developer Survey'),
+('anotherguy@andymeneely.com', 'test', 'user', 'Another Guy', 'Another Project'),
+('anotherguy2@andymeneely.com', 'test', 'user', 'Another Guy 2', 'Another Project'),
+('anotherguy3@andymeneely.com', 'test', 'user', 'Another Guy 3', 'Another Project'),
+('anotherguy4@andymeneely.com', 'test', 'user', 'Another Guy 4', 'Another Project'),
+('anotherguy5@andymeneely.com', 'test', 'user', 'Another Guy 5', 'Another Project'),
+('anotherguy6@andymeneely.com', 'test', 'user', 'Another Guy 6', 'Another Project'),
+('anotherguy7@andymeneely.com', 'test', 'user', 'Another Guy 7', 'Another Project'),
+('anotherguy8@andymeneely.com', 'test', 'user', 'Another Guy 8', 'Another Project'),
+('anotherguy9@andymeneely.com', 'test', 'user', 'Another Guy 9', 'Another Project'),
+('anotherguy10@andymeneely.com', 'test', 'user', 'Another Guy 10', 'Another Project'),
+('anotherguy11@andymeneely.com', 'test', 'user', 'Another Guy 11', 'Another Project')
 ;
 
 INSERT INTO Distance(User1, User2, Distance) VALUES
