@@ -14,33 +14,46 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SendEmail {
+import org.apache.log4j.PropertyConfigurator;
 
+public class SendEmail {
+	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SendEmail.class);
 	public static final String SUBJECT = "Wireshark developers needed for NCSU research project";
 
 	public static void main(String[] args) throws Exception {
 		Properties props = new Properties();
+		PropertyConfigurator.configure(SendEmail.class.getResource("/log4j.properties"));
 		props.load(new FileReader(new File("emaildata/email.properties")));
 
-		String password = getPassword();
-		SMTPAuthenticator authenticator = new SMTPAuthenticator(props.getProperty("email.fromUser"), password);
+		String smtpPassword = getSMTPPassword();
+		SMTPAuthenticator authenticator = new SMTPAuthenticator(props.getProperty("email.fromUser"),
+				smtpPassword);
 		Session mailSession = Session.getInstance(props, authenticator);
 		mailSession.setDebug(true);
 		Transport transport = mailSession.getTransport();
+		transport.connect(props.getProperty("mail.smtps.host"),
+				Integer.valueOf(props.getProperty("email.port")), props.getProperty("email.fromUser"),
+				smtpPassword);
 
-		MimeMessage message = new MimeMessage(mailSession);
-		message.addFrom(new Address[] { new InternetAddress("\"Andy Meneely\" <apmeneel@ncsu.edu>") });
-		message.setSubject(SUBJECT);
-		message.setContent(getContent(), "text/plain");
+		Scanner scanner = new Scanner(new File(props.getProperty("email.listFile")));
+		while (scanner.hasNextLine()) {
+			String[] line = scanner.nextLine().split("\t");
+			String email = line[0];
+			String password = line[1];
 
-		message.addRecipient(Message.RecipientType.TO, new InternetAddress("ameneely@ara.com"));
+			MimeMessage message = new MimeMessage(mailSession);
+			message.addFrom(new Address[] { new InternetAddress("\"Andy Meneely\" <apmeneel@ncsu.edu>") });
+			message.setSubject(SUBJECT);
+			message.setContent(getContent(email, password), "text/plain");
 
-		transport.connect(props.getProperty("mail.smtps.host"), Integer.valueOf(props
-				.getProperty("email.port")), props.getProperty("email.fromUser"), password);
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
-		transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+			transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
+			log.info("Email sent to " + email + " (" + password + ")");
+		}
 		transport.close();
-
+		scanner.close();
+		log.info("Done.");
 	}
 
 	private static class SMTPAuthenticator extends javax.mail.Authenticator {
@@ -57,19 +70,19 @@ public class SendEmail {
 		}
 	}
 
-	private static String getPassword() {
+	private static String getSMTPPassword() {
 		System.out.print("Input NCSU account password: ");
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextLine();
 	}
 
-	private static String getContent() throws FileNotFoundException {
+	private static String getContent(String email, String password) throws FileNotFoundException {
 		String content = "";
 		Scanner scanner = new Scanner(new File("emaildata/emailtemplate.txt"));
-		while(scanner.hasNextLine()){
+		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			line = line.replaceAll("\\{email\\}", "ameneely@ara.com");
-			line = line.replaceAll("\\{password\\}", "abc123");
+			line = line.replaceAll("\\{email\\}", email);
+			line = line.replaceAll("\\{password\\}", password);
 			content += line + "\r\n";
 		}
 		scanner.close();
