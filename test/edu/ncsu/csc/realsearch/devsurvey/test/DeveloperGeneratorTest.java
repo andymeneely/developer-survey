@@ -139,6 +139,6 @@ public class DeveloperGeneratorTest {
 	public void doubleConversion() throws Exception {
 		int i = 2;
 		double chunk = 1.5;
-		assertEquals(3, i * chunk);
+		assertEquals(3.0, i * chunk, 0.01);
 	}
 }
