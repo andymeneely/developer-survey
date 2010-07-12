@@ -7,4 +7,9 @@ char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
 char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
 char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97)),
 char( IF(RAND() < 0.5, ROUND(25 * RAND()) + 65, ROUND(25 * RAND()) + 97))
-);
+)
+WHERE project='PHP';
+
+SELECT users.user, name, project, question, updated, answer 
+FROM users,survey where users.user=survey.user
+ORDER BY project, question, updated
