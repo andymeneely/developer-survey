@@ -26,7 +26,7 @@ if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.savePeople(request,"person",5,6));
-	errors.addAll(save.saveComment(request.getParameter("comment"), 5));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 6));
 	if(errors.size() > 0){
 %>
 <div class=errorList>

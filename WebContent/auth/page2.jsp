@@ -29,7 +29,7 @@ if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
 	errors.addAll(save.saveDistanceTo(request));
-	errors.addAll(save.saveComment(request.getParameter("comment"), 2));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 3));
 	if(errors.size() > 0){
 %>
 <div class=errorList>

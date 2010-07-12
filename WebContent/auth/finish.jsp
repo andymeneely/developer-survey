@@ -43,7 +43,7 @@ String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
-	errors.addAll(save.saveComment(request.getParameter("comment"), 6));
+	errors.addAll(save.saveComment(request.getParameter("comment"), 7));
 	if(errors.size() > 0){
 %>
 <div class=errorList>
