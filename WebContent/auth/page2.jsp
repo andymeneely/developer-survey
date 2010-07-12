@@ -53,7 +53,7 @@ Oops! There was an error with what you entered.
 List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPrincipal().getName());
 %>
 
-<h1>About your team</h1>
+<h1>About your collaborators</h1>
 
 <form method=post action="page2.jsp">
 <input type=hidden name="posted" value="true"/>

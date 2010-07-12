@@ -137,7 +137,7 @@ function toggleTeammates(){
 
 <%@include file="/commentSection.jsp" %>
 
-<div class=pageNum>Page 4 of 5</div>
+<div class=pageNum>Page 5 of 6</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>

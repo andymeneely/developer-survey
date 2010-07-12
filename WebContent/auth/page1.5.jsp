@@ -26,7 +26,7 @@ String posted = request.getParameter("posted");
 if("true".equals(request.getParameter("posted"))){
 	SaveAnswers save = new SaveAnswers(request.getUserPrincipal().getName());
 	List<String> errors = new ArrayList<String>();
-	errors.addAll(save.saveTasks(request));
+	errors.addAll(save.saveNumMembers(request.getParameter("numteammates")));
 	errors.addAll(save.saveComment(request.getParameter("comment"), 1));
 	if(errors.size() > 0){
 %>
@@ -41,35 +41,26 @@ Oops! There was an error with what you entered.
 
 <%
 	} else{
-		response.sendRedirect("page1.5.jsp");
+		response.sendRedirect("page2.jsp");
 	}
 	
 }
 %>
 
-<h1>About your project</h1>
+<h1>About your collaborators</h1>
 
-<form method=post action="page1.jsp">
+<form method=post action="page1.5.jsp">
 <input type=hidden name="posted" value="true"/>
-<div class=question>1. On <%=thisProject%>, I perform the following tasks
-(check all that apply).
-<table>
-	<%
-		for (ProjectTasks role : ProjectTasks.values()) {
-	%>
-	<tr>
-		<td><input type=checkbox name=roles value="<%=role.name()%>" id="<%=role.name()%>"></td>
-		<td><label for="<%=role.name()%>"><%=role.getDescription()%></label></td>
-	</tr>
-	<%
-		}
-	%>
-</table>
+
+<div class=question>2. In your estimation, <b>how many</b> different members
+of this project have you worked with in the last month on <%=thisProject%>? Include in your
+count both in-person and online interactions. <br>Do not include yourself in this count.<br>
+<input name="numteammates" value="" size=3>
 </div>
 
 <%@include file="/commentSection.jsp" %>
 
-<div class=pageNum>Page 1 of 6</div>
+<div class=pageNum>Page 2 of 6</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>

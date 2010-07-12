@@ -7,8 +7,6 @@
 <%@page import="java.util.List"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.DeveloperGenerator"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.AutoSuggestList"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.SaveAnswers"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="edu.ncsu.csc.realsearch.devsurvey.GetProjectName"%><html>
@@ -136,7 +134,7 @@ function toggleTeammates(){
 
 <%@include file="/commentSection.jsp" %>
 
-<div class=pageNum>Page 5 of 5</div>
+<div class=pageNum>Page 6 of 6</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>

@@ -116,7 +116,7 @@ Points left: <input maxlength="2" size=2 type=text disabled="disabled" name="tot
 
 <%@include file="/commentSection.jsp" %>
 
-<div class=pageNum>Page 3 of 5</div>
+<div class=pageNum>Page 4 of 6</div>
 <div class=clear></div>
 
 <input type=button value="Next >>" id=next onclick="checkSum(this.form)">
