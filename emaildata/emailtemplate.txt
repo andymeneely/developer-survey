@@ -1,7 +1,7 @@
 Hi,
-  We are software engineering researchers at North Carolina State University, studying developer collaboration in open source projects. We are currently doing a case study of the Wireshark project, and we are inviting you to take a short, 10-minute online survey about working in open source.
+  We are software engineering researchers at North Carolina State University, studying developer collaboration in open source projects. We are currently doing a case study of the PHP project, and we are inviting you to take a short, 10-minute online survey about working in open source.
 
-The survey is customized to you and your team, personally. Do not be alarmed - we obtained your email and other information from public sources, including Wireshark's website, SVN repository, and release notes. We are also sending this email to 27 other developers on the Wireshark project.
+The survey is customized to you and your team, personally. Do not be alarmed - we obtained your email and other information from public sources, including PHP.net, SVN repository, mailing lists, and source code. We are also sending this email to 75 other developers on the PHP project.
 
 Each person who completes this survey is entered into a drawing to win a $50 gift certificate to Amazon.com. Additionally, by taking this survey, you will also get the satisfaction of helping a PhD student finish his dissertation :)
 
@@ -15,7 +15,7 @@ or, if the direct link doesn't work, go to http://agile.csc.ncsu.edu/DeveloperSu
 User: {email}
 Password: {password}
 
-If you can, please complete this survey by July 21st, 2010. At that time, we may contact you one more time to conduct a brief follow-up interview. Feel free to contact me at this email address if you have any questions. Thank you!
+If you can, please complete this survey by July 26th, 2010. At that time, we may contact you one more time to conduct a brief follow-up interview. Feel free to contact me at this email address if you have any questions. Thank you!
 
      Sincerely,
           Andy Meneely and Laurie Williams
