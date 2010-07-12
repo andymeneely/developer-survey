@@ -86,7 +86,7 @@ List<Developer> devs = new DeveloperGenerator().getDevelopers(request.getUserPri
 
 <%@include file="/commentSection.jsp" %>
 
-<div class=pageNum>Page 2 of 5</div>
+<div class=pageNum>Page 3 of 6</div>
 <div class=clear></div>
 
 <input type=submit value="Next >>" id=next>
