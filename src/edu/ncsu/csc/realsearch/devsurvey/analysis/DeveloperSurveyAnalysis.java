@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
-public class Analysis {
+public class DeveloperSurveyAnalysis {
 	public static void main(String[] args) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		DBUtil dbUtil = new DBUtil("root", "root", "jdbc:mysql://localhost/developersurvey");
