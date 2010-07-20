@@ -11,7 +11,17 @@ public class DeveloperSurveyAnalysis {
 		Class.forName("com.mysql.jdbc.Driver");
 		DBUtil dbUtil = new DBUtil("root", "root", "jdbc:mysql://localhost/developersurvey");
 		question3(dbUtil);
+		question4(dbUtil);
+		question6(dbUtil);
 		System.out.println("Done.");
+	}
+
+	private static void question6(DBUtil dbUtil) throws Exception {
+		new ExpertsQuestion(dbUtil).run();
+	}
+
+	private static void question4(DBUtil dbUtil) throws Exception {
+		new SecurityQuestion(dbUtil).run();
 	}
 
 	private static void question3(DBUtil dbUtil) throws SQLException {
@@ -34,8 +44,9 @@ public class DeveloperSurveyAnalysis {
 					otherUser = otherUser.trim();
 					String project = getProject(conn, respondingUser);
 					double weightedDNDistance = getWeightedDNDistance(conn, respondingUser, otherUser);
-					System.out.println(respondingUser + " --" + perceivedDistance + "(" + weightedDNDistance
-							+ ")--> " + otherUser);
+					// System.out.println(respondingUser + " --" + perceivedDistance + "(" +
+					// weightedDNDistance
+					// + ")--> " + otherUser);
 					psInsert.setString(1, respondingUser);
 					psInsert.setString(2, otherUser);
 					psInsert.setDouble(3, perceivedDistance);
@@ -81,15 +92,6 @@ public class DeveloperSurveyAnalysis {
 			weightedDistance = 10000.0;
 		}
 		return weightedDistance;
-	}
-
-	private static void splitTotals() {
-		String answer = "total0:3, total1:0, total2:5, total3:5, total4:5, total5:3, total6:3, total7:0,";
-		String[] split = answer.split("\\,");
-		for (int i = 0; i < 8; i++) {
-			String total = split[i].replaceAll("total" + i + ":", "").trim();
-			System.out.println(i + ": " + total);
-		}
 	}
 
 	private static String[] splitAnswer(String answer) {

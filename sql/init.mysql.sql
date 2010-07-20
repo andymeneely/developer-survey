@@ -40,4 +40,36 @@ CREATE  TABLE Question3 (
   WeightedDNDistance DOUBLE NOT NULL ,
   Project VARCHAR(45) NOT NULL ,
   PRIMARY KEY (id) 
-);  
+);
+
+CREATE  TABLE Question6 (
+  id INT NOT NULL AUTO_INCREMENT,
+  RespondingUser VARCHAR(100) NOT NULL,
+  Expert VARCHAR(100) NOT NULL,
+  Project VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (id) 
+);
+
+CREATE  TABLE Question4 (
+  id INT NOT NULL AUTO_INCREMENT,
+  RespondingUser VARCHAR(100) NOT NULL,
+  Project VARCHAR(45) NOT NULL ,
+  ChoiceNum INT NOT NULL,
+  Choice VARCHAR(100) NOT NULL,
+  Points INT NOT NULL,
+  PRIMARY KEY (id) 
+);
+
+CREATE VIEW Question4Summary AS
+	SELECT RespondingUser, Project, 
+	Max(IF(ChoiceNum=0,Points,0))  Choice0,
+	Max(IF(ChoiceNum=1,Points,0))  Choice1,
+	Max(IF(ChoiceNum=2,Points,0))  Choice2,
+	Max(IF(ChoiceNum=3,Points,0))  Choice3,
+	Max(IF(ChoiceNum=4,Points,0))  Choice4,
+	Max(IF(ChoiceNum=5,Points,0))  Choice5,
+	Max(IF(ChoiceNum=6,Points,0))  Choice6,
+	Max(IF(ChoiceNum=7,Points,0))  Choice7
+	FROM Question4 
+	GROUP BY RespondingUser
+;
