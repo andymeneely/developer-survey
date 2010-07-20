@@ -10,5 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EasyMock"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EasyMock Class Extensions"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaMail"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL ConnectorJ"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

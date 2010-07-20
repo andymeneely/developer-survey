@@ -31,4 +31,13 @@ CREATE TABLE Survey(
 	Answer		VARCHAR(500),
 	Updated		TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ); 
-  
+
+CREATE  TABLE Question3 (
+  id INT NOT NULL AUTO_INCREMENT ,
+  RespondingUser VARCHAR(100) NOT NULL ,
+  OtherUser VARCHAR(100) NOT NULL ,
+  PerceivedDistance DOUBLE NOT NULL ,
+  WeightedDNDistance DOUBLE NOT NULL ,
+  Project VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (id) 
+);  
