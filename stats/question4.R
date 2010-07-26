@@ -2,17 +2,10 @@ library(RODBC)
 library(lattice)
 conn <- odbcConnect("mysqldevelopersurvey", uid="devsurvey", pwd="3aspeThu", case="tolower")
 question4 <- sqlQuery(conn, "SELECT * FROM Question4Summary")
+summary(question4)
 
-q4matrix[1] <- question4$Choice0
-q4matrix[2] <- question4$Choice1
-q4matrix[3] <- question4$Choice2
-q4matrix[4] <- question4$Choice3
-q4matrix[5] <- question4$Choice4
-q4matrix[6] <- question4$Choice5
-q4matrix[7] <- question4$Choice6
-q4matrix[8] <- question4$Choice7
-
-cor(q4matrix)
+q4matrix <- sqlQuery(conn, "SELECT Choice0,Choice1,Choice2,Choice3,Choice4,Choice5,Choice6,Choice7 FROM Question4Summary")
+cor.test(question4$Choice2, question4$Choice3, method="pearson")
 
 odbcClose(conn)
 rm(conn)
