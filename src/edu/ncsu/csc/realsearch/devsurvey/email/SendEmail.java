@@ -18,7 +18,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 public class SendEmail {
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SendEmail.class);
-	public static final String SUBJECT = "Wireshark developers needed for NCSU research project";
+	public static final String SUBJECT = "Linux kernel developers needed for NCSU research project";
 
 	public static void main(String[] args) throws Exception {
 		Properties props = new Properties();
