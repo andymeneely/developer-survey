@@ -118,7 +118,8 @@ public class DeveloperSurveyAnalysis {
 		rs.next();
 		Double unWeightedDistance = rs.getDouble("UnweightedDistance");
 		if (Math.abs(unWeightedDistance - 100.0) < 1.0) {
-			unWeightedDistance = null;
+			//went and found the maximum distance in all networks (9.0) - so this is always sorted last
+			unWeightedDistance = 10.0; 
 		}
 		return unWeightedDistance;
 	}
