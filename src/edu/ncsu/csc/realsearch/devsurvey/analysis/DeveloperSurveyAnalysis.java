@@ -10,14 +10,19 @@ public class DeveloperSurveyAnalysis {
 	public static void main(String[] args) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		DBUtil dbUtil = new DBUtil("root", "root", "jdbc:mysql://localhost/developersurvey");
-		question3(dbUtil);
-		question4(dbUtil);
-		question6(dbUtil);
+		// question3(dbUtil);
+		// question4(dbUtil);
+		question5(dbUtil);
+		// question6(dbUtil);
 		System.out.println("Done.");
 	}
 
 	private static void question6(DBUtil dbUtil) throws Exception {
 		new ExpertsQuestion(dbUtil).run();
+	}
+
+	private static void question5(DBUtil dbUtil) throws Exception {
+		new CollaboratorsQuestion(dbUtil).run();
 	}
 
 	private static void question4(DBUtil dbUtil) throws Exception {

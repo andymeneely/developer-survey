@@ -7,5 +7,7 @@ delete from survey where id IN(34, 56,77);
 delete from survey where id IN(29, 180);
 delete from survey where id IN(30, 57,117);
 delete from survey where id IN(31,184,81,48,49);
-delete from survey where id IN(182);
-update survey set ANSWER='Guy Harris - guy@alum.mit.edu, Ulf Lamping - ulf.lamping@web.de, gerald@wireshark.org, , , ' WHERE ID=1
+delete from survey where id IN(182,14);
+update survey set ANSWER='Guy Harris - guy@alum.mit.edu, Ulf Lamping - ulf.lamping@web.de, gerald@wireshark.org, , , ' WHERE ID=1;
+update survey SET ANSWER='Gerald Combs - gerald@wireshark.org, stig@bjorlykke.org, , , , ' WHERE ID=64;
+update survey set answer='Guy Harris - guy@alum.mit.edu, Anders Broman - anders.broman@ericsson.com, Stig Bjørlykke - stig@bjorlykke.org, Jaap Keuter - jaap.keuter@xs4all.nl, gerald@wireshark.org, ' where ID=6;

@@ -42,14 +42,6 @@ CREATE  TABLE Question3 (
   PRIMARY KEY (id) 
 );
 
-CREATE  TABLE Question6 (
-  id INT NOT NULL AUTO_INCREMENT,
-  RespondingUser VARCHAR(100) NOT NULL,
-  Expert VARCHAR(100) NOT NULL,
-  Project VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (id) 
-);
-
 CREATE  TABLE Question4 (
   id INT NOT NULL AUTO_INCREMENT,
   RespondingUser VARCHAR(100) NOT NULL,
@@ -73,3 +65,19 @@ CREATE VIEW Question4Summary AS
 	FROM Question4 
 	GROUP BY RespondingUser
 ;
+
+CREATE  TABLE Question5 (
+  id INT NOT NULL AUTO_INCREMENT,
+  RespondingUser VARCHAR(100) NOT NULL,
+  Collaborator VARCHAR(100) NOT NULL,
+  Project VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (id) 
+);
+
+CREATE  TABLE Question6 (
+  id INT NOT NULL AUTO_INCREMENT,
+  RespondingUser VARCHAR(100) NOT NULL,
+  Expert VARCHAR(100) NOT NULL,
+  Project VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (id) 
+);
