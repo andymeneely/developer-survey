@@ -90,3 +90,32 @@ CREATE  TABLE Question6 (
   Project VARCHAR(45) NOT NULL ,
   PRIMARY KEY (id) 
 );
+
+CREATE TABLE DeveloperCentrality(
+  id INT NOT NULL AUTO_INCREMENT,
+  User VARCHAR(100) NOT NULL,
+  Project VARCHAR(45) NOT NULL,
+  Degree DOUBLE NOT NULL,
+  Betweenness DOUBLE NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE VIEW ZExpertCounts AS
+ SELECT Expert, Project, COUNT(*) NumVotes FROM Question6 GROUP BY expert ORDER BY NumVotes DESC 
+;
+
+CREATE VIEW Experts AS
+	SELECT e.Expert as Expert, e.Project as Project, NumVotes, Betweenness, Degree FROM
+	ZExpertCounts e,
+	DeveloperCentrality dc
+	WHERE 
+	e.Expert=dc.User
+;
+
+CREATE VIEW SteeringResponses AS
+	SELECT User, IF(Instr(Answer, 'Steering') >0, "Steering", "Non-Steering") as IsSteering from survey where question=1
+;
+
+CREATE VIEW SteeringCentrality AS
+SELECT sr.user User, dc.degree Degree, dc.Betweenness Betweenness, Project FROM SteeringResponses sr, DeveloperCentrality dc WHERE sr.user=dc.user
+;
