@@ -5,15 +5,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
+import com.sun.xml.internal.ws.wsdl.writer.document.Types;
 
 public class DeveloperSurveyAnalysis {
 	public static void main(String[] args) throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		DBUtil dbUtil = new DBUtil("root", "root", "jdbc:mysql://localhost/developersurvey");
-		// question3(dbUtil);
-		// question4(dbUtil);
+		question3(dbUtil);
+		question4(dbUtil);
 		question5(dbUtil);
-		// question6(dbUtil);
+		question6(dbUtil);
 		System.out.println("Done.");
 	}
 
@@ -34,7 +35,8 @@ public class DeveloperSurveyAnalysis {
 		conn.createStatement().execute("DELETE FROM Question3");
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM Survey WHERE Question=3");
 		PreparedStatement psInsert = conn
-				.prepareStatement("INSERT INTO Question3(RespondingUser,OtherUser,PerceivedDistance,WeightedDNDistance,Project) VALUES (?,?,?,?,?)");
+				.prepareStatement("INSERT INTO Question3(RespondingUser,OtherUser,PerceivedDistance,WeightedDNDistance,UnweightedDNDistance,Project) "
+						+ "VALUES (?,?,?,?,?,?)");
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
 			String respondingUser = rs.getString("User");
@@ -49,6 +51,7 @@ public class DeveloperSurveyAnalysis {
 					otherUser = otherUser.trim();
 					String project = getProject(conn, respondingUser);
 					double weightedDNDistance = getWeightedDNDistance(conn, respondingUser, otherUser);
+					Double unweightedDNDistance = getUnweightedDNDistance(conn, respondingUser, otherUser);
 					// System.out.println(respondingUser + " --" + perceivedDistance + "(" +
 					// weightedDNDistance
 					// + ")--> " + otherUser);
@@ -56,7 +59,11 @@ public class DeveloperSurveyAnalysis {
 					psInsert.setString(2, otherUser);
 					psInsert.setDouble(3, perceivedDistance);
 					psInsert.setDouble(4, weightedDNDistance);
-					psInsert.setString(5, project);
+					if (unweightedDNDistance != null)
+						psInsert.setDouble(5, unweightedDNDistance);
+					else
+						psInsert.setNull(5, java.sql.Types.DOUBLE);
+					psInsert.setString(6, project);
 					psInsert.addBatch();
 					perceivedDistance = 0;
 					otherUser = "";
@@ -94,9 +101,26 @@ public class DeveloperSurveyAnalysis {
 		rs.next();
 		double weightedDistance = rs.getDouble("Distance");
 		if (Math.abs(weightedDistance - 100.0) < 1.0) {
-			weightedDistance = 10000.0;
+			weightedDistance = 200000.0;
 		}
 		return weightedDistance;
+	}
+
+	private static Double getUnweightedDNDistance(Connection conn, String respondingUser, String otherUser)
+			throws SQLException {
+		PreparedStatement ps = conn
+				.prepareStatement("SELECT * FROM AllDistances WHERE (User1=? AND User2=?) OR (User2=? AND User1=?)");
+		ps.setString(1, respondingUser);
+		ps.setString(2, otherUser);
+		ps.setString(3, respondingUser);
+		ps.setString(4, otherUser);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		Double unWeightedDistance = rs.getDouble("UnweightedDistance");
+		if (Math.abs(unWeightedDistance - 100.0) < 1.0) {
+			unWeightedDistance = null;
+		}
+		return unWeightedDistance;
 	}
 
 	private static String[] splitAnswer(String answer) {

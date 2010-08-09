@@ -30,12 +30,14 @@ public class ExpertsQuestion {
 				String answer = str.trim();
 				if (answer.length() > 0) {
 					String expert = getExpert(conn, answer);
-					String project = getProject(conn, respondingUser);
-					System.out.println("(" + project + ") " + respondingUser + " --> " + expert);
-					psInsert.setString(1, respondingUser);
-					psInsert.setString(2, expert);
-					psInsert.setString(3, project);
-					psInsert.addBatch();
+					if (expert != null) {
+						String project = getProject(conn, respondingUser);
+						System.out.println("(" + project + ") " + respondingUser + " --> " + expert);
+						psInsert.setString(1, respondingUser);
+						psInsert.setString(2, expert);
+						psInsert.setString(3, project);
+						psInsert.addBatch();
+					}
 				}
 			}
 		}
@@ -52,7 +54,8 @@ public class ExpertsQuestion {
 			return rs.getString("User");
 		} catch (Exception t) {
 			System.err.println("Cannot find expert " + answer);
-			throw t;
+			// throw t;
+			return null;
 		}
 	}
 

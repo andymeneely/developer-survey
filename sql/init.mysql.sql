@@ -21,7 +21,7 @@ CREATE VIEW UserCross AS
 ;
 
 CREATE VIEW AllDistances AS
-SELECT uo.user1, uo.user2, IF(distance IS NULL, 100, distance) distance 
+SELECT uo.user1, uo.user2, IF(distance IS NULL, 100, distance) distance, IF(unweighteddistance IS NULL, 100, unweighteddistance) unweighteddistance 
 FROM distance d RIGHT OUTER JOIN UserCross uo
   ON (d.user1=uo.user1 AND d.user2=uo.user2);
 
@@ -38,6 +38,7 @@ CREATE  TABLE Question3 (
   OtherUser VARCHAR(100) NOT NULL ,
   PerceivedDistance DOUBLE NOT NULL ,
   WeightedDNDistance DOUBLE NOT NULL ,
+  UnweightedDNDistance DOUBLE NOT NULL ,
   Project VARCHAR(45) NOT NULL ,
   PRIMARY KEY (id) 
 );
@@ -70,9 +71,17 @@ CREATE  TABLE Question5 (
   id INT NOT NULL AUTO_INCREMENT,
   RespondingUser VARCHAR(100) NOT NULL,
   Collaborator VARCHAR(100) NOT NULL,
-  Project VARCHAR(45) NOT NULL ,
+  Project VARCHAR(45) NOT NULL,
   PRIMARY KEY (id) 
 );
+
+CREATE VIEW Question5View AS 
+SELECT RespondingUser, Collaborator, Project, Distance as WeightedDNDistance, UnweightedDistance 
+FROM Question5 INNER JOIN Distance ON (user1=RespondingUser AND user2=Collaborator AND DISTANCE!=100)
+UNION 
+SELECT RespondingUser, Collaborator, Project, Distance as WeightedDNDistance, UnweightedDistance
+FROM Question5 INNER JOIN Distance ON (user2=RespondingUser AND user1=Collaborator AND DISTANCE!=100)
+;
 
 CREATE  TABLE Question6 (
   id INT NOT NULL AUTO_INCREMENT,
