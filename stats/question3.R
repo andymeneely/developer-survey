@@ -7,7 +7,9 @@ numRespondants = 117
 results <- list(1:3)
 results$rhoWeighted <- seq(1:numRespondants)
 results$rhoUnWeighted <- seq(1:numRespondants)
-results$project <- seq(1:numRespondants)
+#results$project <- c(1,numRespondants)
+
+project <- "Linux kernel"
 
 for(i in seq(1:numRespondants) ) {
 	#print(users$RespondingUser[i])
@@ -16,21 +18,37 @@ for(i in seq(1:numRespondants) ) {
 	unweightedDNDistance <- question3$UnweightedDNDistance[question3$RespondingUser == users$RespondingUser[i]]
 	results$rhoWeighted[i] <- cor(perceivedDistance, weightedDNDistance, method="spearman")
 	results$rhoUnWeighted[i] <- cor(perceivedDistance, unweightedDNDistance, method="spearman")
-	#results$project[i] <- question3$Project[question3$RespondingUser == users$RespondingUser[i]]
+	results$project[i] <- question3$Project[question3$RespondingUser == users$RespondingUser[i]]
 
-	print("-----------")
-	print(unweightedDNDistance)
-	print(perceivedDistance)
-	print(cor(perceivedDistance, unweightedDNDistance, method="spearman"))
+	#print("-----------")
+	#print(unweightedDNDistance)
+	#print(perceivedDistance)
+	#print(cor(perceivedDistance, unweightedDNDistance, method="spearman"))
 }
+
+#Linux kernel
 #Avg of Spearmans for Weighted Distances
-summary(results$rhoWeighted)
-t.test(results$rhoWeighted)
-
+summary(results$rhoWeighted[results$project == 1])
+t.test(results$rhoWeighted[results$project == 1])
 #Avg of Spearmans for Unweighted Distances
-summary(results$rhoUnWeighted)
-t.test(results$rhoUnWeighted)
+summary(results$rhoUnWeighted[results$project == 1])
+t.test(results$rhoUnWeighted[results$project == 1])
 
+#PHP
+#Avg of Spearmans for Weighted Distances
+summary(results$rhoWeighted[results$project == 2])
+t.test(results$rhoWeighted[results$project == 2])
+#Avg of Spearmans for Unweighted Distances
+summary(results$rhoUnWeighted[results$project == 2])
+t.test(results$rhoUnWeighted[results$project == 2])
+
+#Wireshark
+#Avg of Spearmans for Weighted Distances
+summary(results$rhoWeighted[results$project == 3])
+t.test(results$rhoWeighted[results$project == 3])
+#Avg of Spearmans for Unweighted Distances
+summary(results$rhoUnWeighted[results$project == 3])
+t.test(results$rhoUnWeighted[results$project == 3])
 
 
 odbcClose(conn)

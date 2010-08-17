@@ -117,5 +117,13 @@ CREATE VIEW SteeringResponses AS
 ;
 
 CREATE VIEW SteeringCentrality AS
-SELECT sr.user User, dc.degree Degree, dc.Betweenness Betweenness, Project FROM SteeringResponses sr, DeveloperCentrality dc WHERE sr.user=dc.user
+SELECT sr.user User, dc.degree Degree, dc.Betweenness Betweenness,IsSteering, Project FROM SteeringResponses sr, DeveloperCentrality dc WHERE sr.user=dc.user
+;
+
+CREATE VIEW ExpertCentrality AS
+	SELECT e.Expert as Expert, e.Project as Project, NumVotes, Betweenness, Degree FROM
+	ZExpertCounts e,
+	DeveloperCentrality dc
+	WHERE 
+	e.Expert=dc.User
 ;
