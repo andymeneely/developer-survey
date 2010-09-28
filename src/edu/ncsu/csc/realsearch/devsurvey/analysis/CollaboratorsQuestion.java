@@ -32,7 +32,7 @@ public class CollaboratorsQuestion {
 					String collaborator = getCollaborator(conn, answer);
 					if (collaborator != null) {
 						String project = getProject(conn, respondingUser);
-						System.out.println("(" + project + ") " + respondingUser + " --> " + collaborator);
+//						System.out.println("(" + project + ") " + respondingUser + " --> " + collaborator);
 						psInsert.setString(1, respondingUser);
 						psInsert.setString(2, collaborator);
 						psInsert.setString(3, project);
@@ -53,7 +53,7 @@ public class CollaboratorsQuestion {
 			rs.next();
 			return rs.getString("User");
 		} catch (Exception t) {
-			System.err.println("Cannot find expert " + answer);
+			System.err.println("Cannot find collaborator " + answer);
 			// throw t;
 			return null;
 		}

@@ -32,7 +32,7 @@ public class ExpertsQuestion {
 					String expert = getExpert(conn, answer);
 					if (expert != null) {
 						String project = getProject(conn, respondingUser);
-						System.out.println("(" + project + ") " + respondingUser + " --> " + expert);
+//						System.out.println("(" + project + ") " + respondingUser + " --> " + expert);
 						psInsert.setString(1, respondingUser);
 						psInsert.setString(2, expert);
 						psInsert.setString(3, project);
