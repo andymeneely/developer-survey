@@ -15,7 +15,6 @@ summary(dc$Degree[dc$Project=="Linux kernel"])
 wilcox.test(experts$Betweenness[experts$Project == "Linux kernel"], dc$Betweenness[dc$Project=="Linux kernel"])
 wilcox.test(experts$Degree[experts$Project == "Linux kernel"], dc$Degree[dc$Project=="Linux kernel"])
 
-
 #PHP Expert & Centrality
 summary(experts$Betweenness[experts$Project == "PHP"])
 summary(dc$Betweenness[dc$Project=="PHP"])
@@ -31,6 +30,11 @@ summary(experts$Degree[experts$Project == "Wireshark"])
 summary(dc$Degree[dc$Project=="Wireshark"])
 wilcox.test(experts$Betweenness[experts$Project == "Wireshark"], dc$Betweenness[dc$Project=="Wireshark"])
 wilcox.test(experts$Degree[experts$Project == "Wireshark"], dc$Degree[dc$Project=="Wireshark"])
+
+#Histograms
+hist(experts$NumVotes[experts$Project=="Linux kernel"],breaks=c((0:11)*5), xlab="Number of Votes (only >2)", main="Linux Kernel")
+hist(experts$NumVotes[experts$Project=="PHP"], breaks=c((2:8)), xlab="Number of Votes (only >2)", main="PHP")
+hist(experts$NumVotes[experts$Project=="Wireshark"], breaks=c((1:11)*2), xlab="Number of Votes (only >2)", main="Wireshark")
 
 
 odbcClose(conn)

@@ -17,6 +17,8 @@ numCollab <- length(q5$UnweightedDistance[q5$Project == "Linux kernel"])
 numCollab
 #Percentage of reported collaborators 
 length(q5$UnweightedDistance[q5$Project == "Linux kernel" & q5$UnweightedDistance==1]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "Linux kernel" & q5$UnweightedDistance==2]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "Linux kernel" & q5$UnweightedDistance==3]) / numCollab
 
 
 #Summary for PHP
@@ -27,6 +29,8 @@ numCollab <- length(q5$UnweightedDistance[q5$Project == "PHP"])
 numCollab
 #Percentage of reported collaborators 
 length(q5$UnweightedDistance[q5$Project == "PHP" & q5$UnweightedDistance==1]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "PHP" & q5$UnweightedDistance==2]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "PHP" & q5$UnweightedDistance==3]) / numCollab
 
 
 #Summary for Wireshark
@@ -37,6 +41,8 @@ numCollab <- length(q5$UnweightedDistance[q5$Project == "Wireshark"])
 numCollab
 #Percentage of reported collaborators 
 length(q5$UnweightedDistance[q5$Project == "Wireshark" & q5$UnweightedDistance==1]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "Wireshark" & q5$UnweightedDistance==2]) / numCollab
+length(q5$UnweightedDistance[q5$Project == "Wireshark" & q5$UnweightedDistance==3]) / numCollab
 
 
 #Comparison with the population
