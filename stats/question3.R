@@ -16,8 +16,12 @@ for(i in seq(1:numRespondants) ) {
 	perceivedDistance <- question3$PerceivedDistance[question3$RespondingUser == users$RespondingUser[i]]
 	weightedDNDistance <- question3$WeightedDNDistance[question3$RespondingUser == users$RespondingUser[i]]
 	unweightedDNDistance <- question3$UnweightedDNDistance[question3$RespondingUser == users$RespondingUser[i]]
-	results$rhoWeighted[i] <- cor(perceivedDistance, weightedDNDistance, method="spearman")^2
-	results$rhoUnWeighted[i] <- cor(perceivedDistance, unweightedDNDistance, method="spearman")^2
+
+	tempRhoWeighted <- cor(perceivedDistance, weightedDNDistance, method="spearman")
+	tempRhoUnweighted <- cor(perceivedDistance, unweightedDNDistance, method="spearman")
+
+	results$rhoWeighted[i] <- sqrt(length(weightedDNDistance)-3)*log(tempRhoWeighted )/2
+	results$rhoUnWeighted[i] <- sqrt(length(unweightedDNDistance)-3)*log(tempRhoUnweighted )/2
 	results$project[i] <- question3$Project[question3$RespondingUser == users$RespondingUser[i]]
 
 	#print("-----------")
